@@ -1,0 +1,11 @@
+.list{
+    padding: 1px;
+    border: solid 10px silver;
+}
+
+.day{
+    font-family: cursive;
+    border: 3px dotted hotpink;
+    padding: 0.5em;
+    margin: 0 0.5em;
+}
