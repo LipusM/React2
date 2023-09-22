@@ -8,14 +8,17 @@ import Products from "../Products";
 
 const HomePage = () => {
 
-  const [data, setData] = useState()  
+  const [pageData, setPageData] = useState([])  
 
   useEffect(() => {
 
     fetch(`https://apps.kodim.cz/react-2/xxxmuck/products`)
       .then((response) => response.json())
-      .then((data) => c(data))
-
+      .then((data) => {
+        setPageData(data)
+        c(data)
+      }
+      )
   }, [])
 
   return (
@@ -25,7 +28,7 @@ const HomePage = () => {
         Nejnovější prémiové produkty od předních českých designerů. <br />
         Doprava zdarma až k vám domů, na cenu nehleďte.
       </p>
-      <Products />
+      <Products info={pageData}/>
     </main>
   );
 };

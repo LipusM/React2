@@ -4,14 +4,13 @@ import { NavLink } from "react-router-dom"
 
 import "./style.scss"
 
-const Products = (props) => {
+const Products = ({info}) => {
     return (
         <section>
             <div>
-                <NavLink>
-                    <img src="" alt="" />
-                </NavLink>
-                <div>{props.name}</div>
+                {
+                    info.map(product => <p>{product.name}</p>)
+                }
             </div>
         </section>
     )
