@@ -1,0 +1,11 @@
+#allProducts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .product{
+        p{
+            color: #6d6d6d;;
+        }
+    }
+}

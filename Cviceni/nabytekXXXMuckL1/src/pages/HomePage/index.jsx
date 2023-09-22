@@ -14,10 +14,8 @@ const HomePage = () => {
 
     fetch(`https://apps.kodim.cz/react-2/xxxmuck/products`)
       .then((response) => response.json())
-      .then((data) => {
+      .then((data) => 
         setPageData(data)
-        c(data)
-      }
       )
   }, [])
 
@@ -28,7 +26,7 @@ const HomePage = () => {
         Nejnovější prémiové produkty od předních českých designerů. <br />
         Doprava zdarma až k vám domů, na cenu nehleďte.
       </p>
-      <Products info={pageData}/>
+      <Products props={pageData}/>
     </main>
   );
 };
