@@ -7,17 +7,22 @@ import { useState, useEffect } from "react";
 
 const ProductPage = () => {
 
-  const [productInfo, setProductInfo] = useState()  
-    
-  const { id } = useParams();
+  const { id } = useParams();  
 
-/*   fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${Number(id)}`)
-  .then(response => response.json())
-  .then(data => setProductInfo(data)) */
+  const [productInfo, setProductInfo] = useState({})  
+
+  useEffect(() => {
+    fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${Number(id)}`)
+    .then(response => response.json())
+    .then(data => {
+        setProductInfo(data)
+    })
+  }, [])
 
   return (
     <div>
-        Ahoj světe!
+            <h2>{productInfo.name}</h2>
+          <img src={productInfo.image} alt={productInfo.name} />
     </div>
   );
 };

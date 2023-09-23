@@ -1,4 +1,3 @@
-import { createRouter } from '@remix-run/router'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -22,7 +21,7 @@ const router = createBrowserRouter([
             element: <ProductPage />
           }
         ]
-      }
+      },
     ]
   }
 ])
@@ -31,5 +30,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
