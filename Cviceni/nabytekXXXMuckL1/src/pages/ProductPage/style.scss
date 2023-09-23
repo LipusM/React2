@@ -1,6 +1,6 @@
 .chosenProduct{
-    border: solid 1px red;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 
     position: absolute;
@@ -11,7 +11,6 @@
     right: 0;
 
     .productInfo{
-        border: solid 1px green;
         display: flex;
         flex-direction: column;
 
