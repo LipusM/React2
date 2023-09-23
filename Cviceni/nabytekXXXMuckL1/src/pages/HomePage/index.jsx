@@ -8,6 +8,7 @@ import Products from "../Products";
 
 const HomePage = () => {
 
+  const [loading, setLoading] = useState(true)
   const [pageData, setPageData] = useState([])  
 
   useEffect(() => {

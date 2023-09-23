@@ -3,6 +3,7 @@ const c = console.log.bind(document)
 import { NavLink } from "react-router-dom"
 
 import "./style.scss"
+import Loader from "../../components/Loader"
 
 const Products = ({props}) => {
 
