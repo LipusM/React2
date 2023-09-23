@@ -12,7 +12,7 @@ const ProductPage = () => {
   const [productInfo, setProductInfo] = useState({})  
 
   useEffect(() => {
-    fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${Number(id)}`)
+    fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${id}`)
     .then(response => response.json())
     .then(data => 
         setProductInfo(data)
