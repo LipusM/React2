@@ -1,11 +1,13 @@
 const c = console.log.bind(document)
 
+import { NavLink } from "react-router-dom"
+
 import "./style.scss"
 
 const Menu = () => {
     return (
         <header>
-            <h1>XXXMuck</h1>
+            <NavLink to="/"><h1>XXXMuck</h1></NavLink>
         </header>
     )
 }
