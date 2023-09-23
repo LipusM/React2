@@ -10,6 +10,10 @@
     left: 0;
     right: 0;
 
+    #loader{
+        margin: auto;
+    }
+
     .productInfo{
         display: flex;
         flex-direction: column;

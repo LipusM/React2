@@ -9,26 +9,51 @@ import Loader from "../../components/Loader";
 const ProductPage = () => {
   const { id } = useParams();
 
+  const [loading, setLoading] = useState(true);
   const [productInfo, setProductInfo] = useState({});
 
   useEffect(() => {
+    setLoading(true);
+
     fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${id}`)
       .then((response) => response.json())
-      .then((data) => setProductInfo(data));
+      .then((data) => {
+        setProductInfo(data);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div className="chosenProduct">
-      <div className="productImage">
-        <img src={productInfo.image} alt={productInfo.name} />
+      {loading ? 
+      <div id="loader">
+        <Loader />
       </div>
-      <div className="productInfo">
-        <h2>{productInfo.name}</h2>
-        <button>Objednat</button>
-      </div>
+       : 
+        <>
+          <div className="productImage">
+            <img src={productInfo.image} alt={productInfo.name} />
+          </div>
+          <div className="productInfo">
+            <h2>{productInfo.name}</h2>
+            <button>Objednat</button>
+          </div>
+        </>
+      }
     </div>
   );
 };
 
 export default ProductPage;
 
+{
+  /* <div className="chosenProduct">
+<div className="productImage">
+  <img src={productInfo.image} alt={productInfo.name} />
+</div>
+<div className="productInfo">
+  <h2>{productInfo.name}</h2>
+  <button>Objednat</button>
+</div>
+</div> */
+}
