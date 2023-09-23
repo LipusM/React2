@@ -1,3 +1,30 @@
-img{
-    margin-top: 100px;
+.chosenProduct{
+    border: solid 1px red;
+    display: flex;
+    gap: 20px;
+
+    position: absolute;
+    top: 15%;
+    margin: auto;
+    width: 80%;
+    left: 0;
+    right: 0;
+
+    .productInfo{
+        border: solid 1px green;
+        display: flex;
+        flex-direction: column;
+
+        h2{
+            font-weight: inherit;
+        }
+
+        button{
+            border: none;
+            color: white;
+            background-color: #414141;
+
+            padding: 15px;
+        }
+    }
 }
