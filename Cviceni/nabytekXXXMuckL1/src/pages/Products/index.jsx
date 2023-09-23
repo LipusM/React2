@@ -12,7 +12,7 @@ const Products = ({props}) => {
                     props.map
                     (product => 
                     <div key={product.id} className="product">
-                        <NavLink><img src={product.image} alt="" /></NavLink>
+                        <NavLink to={`/product/${product.id}`}><img src={product.image} alt="" /></NavLink>
                         <p>{product.name}</p>
                     </div>
                     )

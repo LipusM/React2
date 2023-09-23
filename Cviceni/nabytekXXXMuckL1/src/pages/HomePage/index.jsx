@@ -1,6 +1,7 @@
 const c = console.log.bind(document);
 
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import "./style.scss";
 
@@ -34,6 +35,7 @@ const HomePage = () => {
       </p>
 
       {loading ? <Loader/> :  <Products props={pageData}/>}
+      <Outlet />
     </main>
   );
 };
