@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "./style.scss";
 
 import Products from "../Products";
+import Loader from "../../components/Loader";
 
 const HomePage = () => {
 
@@ -13,11 +14,15 @@ const HomePage = () => {
 
   useEffect(() => {
 
+    setLoading(true)
+
     fetch(`https://apps.kodim.cz/react-2/xxxmuck/products`)
       .then((response) => response.json())
-      .then((data) => 
+      .then((data) => {
         setPageData(data)
-      )
+
+        setLoading(false)
+      })
   }, [])
 
   return (
@@ -27,7 +32,8 @@ const HomePage = () => {
         Nejnovější prémiové produkty od předních českých designerů. <br />
         Doprava zdarma až k vám domů, na cenu nehleďte.
       </p>
-      <Products props={pageData}/>
+
+      {loading ? <Loader/> :  <Products props={pageData}/>}
     </main>
   );
 };
