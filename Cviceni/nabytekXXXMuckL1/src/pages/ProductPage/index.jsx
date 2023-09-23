@@ -14,9 +14,9 @@ const ProductPage = () => {
   useEffect(() => {
     fetch(`https://apps.kodim.cz/react-2/xxxmuck/products/${Number(id)}`)
     .then(response => response.json())
-    .then(data => {
+    .then(data => 
         setProductInfo(data)
-    })
+    )
   }, [])
 
   return (
