@@ -24,7 +24,7 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div className="chosenProduct">
+    <main className="chosenProduct">
       {loading ? 
       <div id="loader">
         <Loader />
@@ -40,20 +40,8 @@ const ProductPage = () => {
           </div>
         </>
       }
-    </div>
+    </main>
   );
 };
 
 export default ProductPage;
-
-{
-  /* <div className="chosenProduct">
-<div className="productImage">
-  <img src={productInfo.image} alt={productInfo.name} />
-</div>
-<div className="productInfo">
-  <h2>{productInfo.name}</h2>
-  <button>Objednat</button>
-</div>
-</div> */
-}
