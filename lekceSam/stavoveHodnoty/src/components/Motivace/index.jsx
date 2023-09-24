@@ -29,6 +29,8 @@ const Motivace = () => {
 
         {c("Proměnné x a y:")}
         {c(x === y)}
+
+        {c(x)}
         </>
     )
 }
