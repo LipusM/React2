@@ -23,7 +23,7 @@ const SpreadyObjektu = () => {
     
     return (
         <>
-            {c("3: //////////")}
+            {c("1: //////////")}
             {c("1: Nemodifikovaný objekt:")}
             {c(time1)}
 
