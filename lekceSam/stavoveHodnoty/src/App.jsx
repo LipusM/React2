@@ -4,7 +4,8 @@ import './app.scss'
 
 import Motivace from './components/Motivace'
 import Imutabilita from './components/Imutabilita'
-import Spready from './components/Spready'
+import SpreadyPoli from './components/SpreadyPoli'
+import SpreadyObjektu from './components/SpreadyObjektu'
 
 const App = () => {
 
@@ -15,7 +16,9 @@ const App = () => {
 
       {/* <Imutabilita/> */}
 
-      <Spready />
+      {/* <SpreadyPoli /> */}
+
+      <SpreadyObjektu />
     </>
   )
 }

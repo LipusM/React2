@@ -15,7 +15,7 @@ const removed2 = arr2.splice(1, 3); // Odebere [2, 3, 4] z původního pole
 
  const y = [...x]
 
-const Spready = () => {
+const SpreadyPoli = () => {
     return (
         <>
             {c("//////////Přidání prvku na ZAČÁTEK//////////")}
@@ -49,10 +49,10 @@ const Spready = () => {
             {c(x)}
 
             {c("8: Immutable - tady si prostě vyrobíme kopii pole:")}
-            {"const y = [...x]"}
+            {c("const y = [...x]")}
             {c(y.shift())}
         </>
     )
 }
 
-export default Spready
+export default SpreadyPoli
