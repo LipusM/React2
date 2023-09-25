@@ -17,10 +17,14 @@ const names3 = [...names]
 
 // 4) Odstraňte poslední prvek pole
 /* const names4 = [...names] */
-const names4 = names.slice(0, -1)
+/* const names4 = names.slice(0, -1) */
+const names5 = [...names]
+names5.pop()
 
 // 5) Odstraňte z pole hodnotu na třetím indexu
-const names5 =[...names.slice(0, 2), ...names.slice(3, -1)]
+/* const names6 =[...names.slice(0, 2), ...names.slice(3, -1)] */
+const names7 = [...names]
+names7.splice(3,1)
 
 const SpreadyPoli = () => {
     return (
@@ -38,10 +42,12 @@ const SpreadyPoli = () => {
 
             {c("Úkol číslo 4:")}
             {/* {c(names4.slice(0, -1))} */}
-            {c(names4)}
+            {/* {c(names4)} */}
+            {c(names5)}
 
             {c("Úkol číslo 5:")}
-            {c(names5)}
+            {/* {c(names6)} */}
+            {c(names7)}
         </>
     )
 }
