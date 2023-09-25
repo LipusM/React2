@@ -17,7 +17,10 @@ const time3 = {
     mins: 21
 }
 
+ 
+
 const SpreadyObjektu = () => {
+    
     return (
         <>
             {c("3: //////////")}
@@ -38,7 +41,7 @@ const SpreadyObjektu = () => {
             {time3.secs = 35}
             {c(time3)}
 
-            {{ ...time3, hours: 10, secs: 35 }}
+            {/* {{ ...time3, hours: 10, secs: 35 }} */}
 
         </>
     )
