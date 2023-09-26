@@ -18,17 +18,17 @@ const remove = (array, index) => {
 
 //3) Vytvořte funkci swap, která obdrží pole a dva indexy. Funkce prohodí prvky na těchto indexech.
 const swap = (array, index1, index2) => {
-    const newArray = [...array]
+    const newArray = array
 
-/*     const value1 = array1[index1]
+    const value1 = array1[index1]
     const value2 = array1[index2]
 
     newArray[index1] = value2
-    newArray[index2] = value1 */
+    newArray[index2] = value1
 
     //Z kodim
-    newArray[index1] = array1[index2]
-    newArray[index2] = array1[index1]
+    /* newArray[index1] = array1[index2]
+    newArray[index2] = array1[index1] */
     
     return newArray
 }
