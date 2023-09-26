@@ -11,7 +11,7 @@ const reversed = (array) => {
 //2) Vytvořte funkci remove, která obdrží pole a index. Funkce smaže prvek na zadaném indexu
 const remove = (array, index) => {
     const newArray = [...array]
-    newArray.splice(index, 0)
+    newArray.splice(index, 1)
 
     return newArray
 }
@@ -20,12 +20,15 @@ const remove = (array, index) => {
 const swap = (array, index1, index2) => {
     const newArray = [...array]
 
-    const value1 = newArray[index1]
-    const value2 = newArray[index2]
+/*     const value1 = array1[index1]
+    const value2 = array1[index2]
 
     newArray[index1] = value2
-    newArray[index2] = value1
-    /* newArray.splice(index1, 1, index2) */
+    newArray[index2] = value1 */
+
+    //Z kodim
+    newArray[index1] = array1[index2]
+    newArray[index2] = array1[index1]
     
     return newArray
 }
@@ -40,10 +43,7 @@ const Imutabilita = () => {
             { c(remove(array1, 2)) }
 
             {c("Úkol číslo 3:")}
-             {/* { c( swap(array1, 0, array1[4]) )} */}
-             {c(swap(array1, 0, 4))}
-           
-
+            {c(swap(array1, 0, 4))}
         </>
     )
 }
