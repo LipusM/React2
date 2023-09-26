@@ -11,9 +11,9 @@ const reversed = (array) => {
 //2) Vytvořte funkci remove, která obdrží pole a index. Funkce smaže prvek na zadaném indexu
 const remove = (array, index) => {
     const newArray = [...array]
-    return newArray.splice(index, 1)
+    newArray.splice(index, 1)
 
-    /* return newArray */
+    return newArray
 }
 
 const Imutabilita = () => {
