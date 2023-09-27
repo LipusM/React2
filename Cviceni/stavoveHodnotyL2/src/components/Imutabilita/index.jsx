@@ -18,7 +18,7 @@ const remove = (array, index) => {
 
 //3) Vytvořte funkci swap, která obdrží pole a dva indexy. Funkce prohodí prvky na těchto indexech.
 const swap = (array, index1, index2) => {
-    const newArray = array
+    const newArray = [...array]
 
     const value1 = array1[index1]
     const value2 = array1[index2]
@@ -38,12 +38,15 @@ const Imutabilita = () => {
         <>
             {c("Úkol číslo 1:")}
             { c(reversed(array1)) }
+            {c(array1)}
 
             {c("Úkol číslo 2:")}
             { c(remove(array1, 2)) }
+            {c(array1)}
 
             {c("Úkol číslo 3:")}
             {c(swap(array1, 0, 4))}
+            {c(array1)}
         </>
     )
 }
