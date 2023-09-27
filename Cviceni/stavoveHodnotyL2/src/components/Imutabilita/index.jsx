@@ -33,6 +33,8 @@ const swap = (array, index1, index2) => {
     return newArray
 }
 
+/* const newArray = array1 */
+
 const Imutabilita = () => {
     return (
         <>
