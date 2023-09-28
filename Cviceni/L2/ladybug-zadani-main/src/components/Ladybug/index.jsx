@@ -1,3 +1,5 @@
+const c = console.log.bind(document)
+
 import React from 'react';
 import './style.css';
 
