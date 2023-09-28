@@ -1,7 +1,7 @@
 const c = console.log.bind(document)
 
 import React from 'react';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import "./style.css"
 
@@ -9,7 +9,7 @@ const TagCloud = () => {
 
     const [tags, setTags] = useState(["Auto", "Brambora", "Ananas", "Byt", "Fotbal"])
 
-
+    let keyValue = 0
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -18,14 +18,16 @@ const TagCloud = () => {
         
         setTags([...tags, tagValue.value])
         tagValue.value = ""
+        {c(tags)}
     }
 
     const removeFirst = () => {
         const customized = [...tags]
         customized.splice(0, 1)
 
-        setTags(customized)
+        setTags([...customized])
     }
+
 
     return (
         <>
@@ -38,7 +40,7 @@ const TagCloud = () => {
             </div>
 
             <div>
-                {tags.map(tag => <div className='element' key={tag}>{tag}</div>)}
+                {tags.map(tag => <div className='element' key={keyValue++}>{tag}</div>)}
             </div>
         </>
     )
