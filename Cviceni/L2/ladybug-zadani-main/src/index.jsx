@@ -52,7 +52,8 @@ const App = () => {
       onKeyDown={handleKeyUp}
     >
       <header>Click anywhere to start the game</header>
-      <Ladybug posX={posX} posY={posY} orientation={orientation}/>
+      {/* <Ladybug posX={posX} posY={posY} orientation={orientation}/> */}
+      <Ladybug props={ladybugState}/>
     </div>
   );
 };
