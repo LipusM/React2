@@ -18,7 +18,8 @@ const TagCloud = () => {
         const tagValue = document.querySelector("#tagValue")
         
         setTags([...tags, tagValue.value])
-        tagValue.value = ""
+        tagValue.value = null
+        c(loadedValues)
     }
 
     const removeFirst = () => {
@@ -26,6 +27,7 @@ const TagCloud = () => {
         customized.splice(0, 1)
 
         setTags([...customized])
+        c(loadedValues)
     }
 
     return (
