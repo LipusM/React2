@@ -7,7 +7,9 @@ import "./style.css"
 
 const TagCloud = () => {
 
-    const [tags, setTags] = useState(["Auto", "Brambora", "Ananas", "Byt", "Fotbal"])
+    const loadedValues = ["Auto", "Brambora", "Ananas", "Byt", "Fotbal"]
+    const [tags, setTags] = useState(loadedValues)
+
     let keyValue = 0
 
     const handleSubmit = (e) => {
@@ -17,7 +19,6 @@ const TagCloud = () => {
         
         setTags([...tags, tagValue.value])
         tagValue.value = ""
-        {c(tags)}
     }
 
     const removeFirst = () => {
