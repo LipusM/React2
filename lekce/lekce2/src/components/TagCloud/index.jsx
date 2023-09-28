@@ -8,7 +8,6 @@ import "./style.css"
 const TagCloud = () => {
 
     const [tags, setTags] = useState(["Auto", "Brambora", "Ananas", "Byt", "Fotbal"])
-
     let keyValue = 0
 
     const handleSubmit = (e) => {
@@ -27,7 +26,6 @@ const TagCloud = () => {
 
         setTags([...customized])
     }
-
 
     return (
         <>
