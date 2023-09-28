@@ -5,6 +5,19 @@ import "./style.css"
 
 const array =  [1, 2, 3, 4, 5]
 
+const pokus2 = (pole) => {
+    const pokus = [...pole]
+
+    return pokus.slice(0,3)
+}
+
+const pokus3 = (pole, index) => {
+    const pokus = [...pole]
+
+    pokus.splice(index, 1)
+    return pokus
+}
+
 //1) Vytvořte funkci reversed, která obrátí pořadí prvků v poli.
 const reversed = (array) => {
     const array1 = [...array]
@@ -44,6 +57,12 @@ const Imutabilita = () => {
             {c("3 cvičení:")}
             {c(swap(array, 0, 4))}
             {c(array)}
+
+            {c("Slice")}
+            {c(pokus2(array))}
+
+            {c("Splice")}
+            {c(pokus3(array, 0))}
         </>
     )
 }
