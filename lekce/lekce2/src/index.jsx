@@ -5,6 +5,7 @@ import './style.css';
 import SpreadyPoli from './components/SpreadyPoli';
 import SpreadyObjektu from './components/SpreadyObjektu';
 import Imutabilita from './components/Imutabilita';
+import TimeDisplay from './components/TimeDisplay';
 
 const App = () => {
   return (
@@ -13,8 +14,10 @@ const App = () => {
         {/* <SpreadyPoli/> */}
 
         {/* <SpreadyObjektu/> */}
-        
-        <Imutabilita/>
+
+        {/* <Imutabilita/> */}
+
+        <TimeDisplay/>
 
     </div>
   );
