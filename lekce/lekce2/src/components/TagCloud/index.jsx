@@ -1,7 +1,7 @@
 const c = console.log.bind(document)
 
 import React from 'react';
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import "./style.css"
 
@@ -9,9 +9,7 @@ const TagCloud = () => {
 
     const [tags, setTags] = useState(["Auto", "Brambora", "Ananas", "Byt", "Fotbal"])
 
-/*     useEffect( () => {
 
-    }) */
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,7 +21,10 @@ const TagCloud = () => {
     }
 
     const removeFirst = () => {
+        const customized = [...tags]
+        customized.splice(0, 1)
 
+        setTags(customized)
     }
 
     return (
