@@ -11,6 +11,7 @@ const App = () => {
   const [orientation, setOrientation] = useState('right');
   
   const handleKeyUp = ({ code }) => {
+
     if (code === 'ArrowUp') {
       setOrientation('up');
       setPosX(posX - STEP_SIZE);
@@ -24,6 +25,7 @@ const App = () => {
       setOrientation('down');
       setPosX(posX + STEP_SIZE);
     }
+
   };
 
   return (
@@ -37,6 +39,8 @@ const App = () => {
     </div>
   );
 };
+
+
 
 createRoot(
   document.querySelector('#app'),
