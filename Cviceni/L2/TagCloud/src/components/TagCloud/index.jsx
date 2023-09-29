@@ -19,6 +19,7 @@ const TagCloud = () => {
         /* setTags([...tags, tagValue.value]) */
         setTags([...tags, newTag])
         /* tagValue.value = "" */
+        
         setNewTag("")
         c(loadedValues)
     }
