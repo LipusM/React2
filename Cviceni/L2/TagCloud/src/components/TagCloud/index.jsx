@@ -12,8 +12,13 @@ const TagCloud = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setTags([...tags, newTag])
-        setNewTag("")
+        //Kontrola, zda tag již existuje či ne
+        if(!tags.includes(newTag)){
+            setTags([...tags, newTag])
+
+            setNewTag("")
+        }
+        
         c(tags)
     }
 
