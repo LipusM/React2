@@ -44,7 +44,7 @@ const TagCloud = () => {
             </div>
 
             <div id="allTags">
-                {tags.map( (tag, index) => <div className='element' key={index}>{tag}</div>)}
+                {tags.map( (tag, index) => <div className='element' key={tag}>{tag}</div>)}
             </div>
         </>
     )
