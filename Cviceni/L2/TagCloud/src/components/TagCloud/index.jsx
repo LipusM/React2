@@ -9,17 +9,10 @@ const TagCloud = () => {
 
     const [newTag, setNewTag] = useState("")
 
-    /* let keyValue = 0 */
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        /* const tagValue = document.querySelector("#tagValue") */
-        
-        /* setTags([...tags, tagValue.value]) */
-        setTags([...tags, newTag])
-        /* tagValue.value = "" */
 
+        setTags([...tags, newTag])
         setNewTag("")
         c(tags)
     }
@@ -29,6 +22,7 @@ const TagCloud = () => {
         customized.splice(0, 1) */
 
         /* setTags([...customized]) */
+        
         setTags(tags.slice(1))
         c(tags)
     }
