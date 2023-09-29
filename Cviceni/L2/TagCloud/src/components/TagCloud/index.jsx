@@ -14,14 +14,14 @@ const TagCloud = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         
-        const tagValue = document.querySelector("#tagValue")
+        /* const tagValue = document.querySelector("#tagValue") */
         
         /* setTags([...tags, tagValue.value]) */
         setTags([...tags, newTag])
         /* tagValue.value = "" */
-        
+
         setNewTag("")
-        c(loadedValues)
+        c(tags)
     }
 
     const removeFirst = () => {
@@ -30,20 +30,21 @@ const TagCloud = () => {
 
         /* setTags([...customized]) */
         setTags(tags.slice(1))
-        c(loadedValues)
+        c(tags)
     }
+
 
     return (
         <>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input id="tagValue" type="text" value={newTag} onChange={ e => setNewTag(e.currentTarget.value)}/>
-                    <button type='submit'>Přidat</button>
+                    <button type='submit' disabled={!newTag}>Přidat</button>
                     <button onClick={removeFirst}>Odstraň první prvek</button>
                 </form>
             </div>
 
-            <div>
+            <div id="allTags">
                 {tags.map( (tag, index) => <div className='element' key={index}>{tag}</div>)}
             </div>
         </>
