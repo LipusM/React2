@@ -4,7 +4,7 @@ import { useState } from "react"
 import './style.scss'
 
 const TagCloud = () => {
-    const loadedValues = ["Auto", "Brambora", "Ananas", "Byt", "Fotbal"]
+    const loadedValues = ["Auto", "Brambora", "Ananas", "Jablko", "Fotbal"]
     const [tags, setTags] = useState(loadedValues)
 
     const [newTag, setNewTag] = useState("")
