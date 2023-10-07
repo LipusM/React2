@@ -1,18 +1,18 @@
-const c = console.log.bind(document)
+const c = console.log.bind(document);
 
-import './style.scss'
+import "./style.scss";
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
- 
-
   return (
-    <nav>
+    <header>
+      <nav className="container">
         <NavLink to="/">Domů</NavLink>
         <NavLink to="/test">Test připojení</NavLink>
-    </nav>
+      </nav>
+    </header>
   )
 }
 
-export default Navigation
+export default Navigation;
