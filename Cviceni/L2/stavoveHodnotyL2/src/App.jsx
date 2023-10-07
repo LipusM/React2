@@ -12,9 +12,9 @@ const App = () => {
     <>
       {/* <SpreadyPoli/> */}
 
-      {/* <SpreadyObjektu/> */}
+      <SpreadyObjektu/>
 
-      <Imutabilita />
+      {/* <Imutabilita /> */}
     </>
   )
 

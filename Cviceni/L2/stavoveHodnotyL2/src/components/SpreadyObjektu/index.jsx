@@ -18,7 +18,8 @@ const SpreadyObjektu = () => {
     return (
         <>
         {c("Úkol číslo 1:")}
-        {c(ticket1)}
+        {/* {c(ticket1)} */}
+        {c({...ticket, duration: "2h"})}
         {c(ticket)}
 
         {c("Úkol číslo 2:")}
