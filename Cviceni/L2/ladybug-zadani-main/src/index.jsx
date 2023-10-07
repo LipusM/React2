@@ -21,24 +21,28 @@ const App = () => {
     orientation: "right"
   })
 
-  {c(ladybugState)}
+  /* {c(ladybugState)} */
   
   const handleKeyUp = ({ code }) => {
 
     if (code === 'ArrowUp') {
       setLadybugState({...ladybugState, posX: ladybugState.posX - STEP_SIZE, orientation: "up"})
+      c(ladybugState)
       /* setOrientation('up');
       setPosX(posX - STEP_SIZE); */
     } else if (code === 'ArrowLeft') {
       setLadybugState({...ladybugState, posY: ladybugState.posY - STEP_SIZE, orientation: "left"})
+      c(ladybugState)
       /* setOrientation('left');
       setPosY(posY - STEP_SIZE); */
     } else if (code === 'ArrowRight') {
       setLadybugState({...ladybugState, posY: ladybugState.posY + STEP_SIZE, orientation: "right"})
+      c(ladybugState)
       /* setOrientation('right');
       setPosY(posY + STEP_SIZE); */
     } else if (code === 'ArrowDown') {
       setLadybugState({...ladybugState, posX: ladybugState.posX + STEP_SIZE, orientation: "down"})
+      c(ladybugState)
       /* setOrientation('down');
       setPosX(posX + STEP_SIZE); */
     }
