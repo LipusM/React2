@@ -19,14 +19,21 @@ const Offline = () => {
   useEffect(() => {
 
     const handleOffline = () => {
+      c("Funkce handleOffline")
       setIsOnline(false)
     }
     window.addEventListener('offline', handleOffline)
 
     const handleOnline = () => {
+      c("Funke handleOnline")
       setIsOnline(true)
     }
     window.addEventListener('online', handleOnline)
+
+    return () => {
+      window.removeEventListener("offline", handleOffline)
+      window.removeEventListener("online", handleOnline)
+    }
 
   }, [isOnline])
 
