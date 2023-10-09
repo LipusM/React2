@@ -5,20 +5,21 @@ import { useState, useEffect } from "react";
 const Counter = () => {
 
     const [count, setCount] = useState(0);
-  
+
     const handleKeyUp = (e) => {
       if (e.code === 'Space') {
-        setCount(count + 1)
+        setCount(prev => prev + 1);
       }
-    }
+    };    
   
     useEffect(() => {
-      document.addEventListener('keyup', handleClick);
-      return () => document.removeEventListener('keyup', handleKeyUp)
-    }, [count])
+      document.addEventListener('keyup', handleKeyUp);
+      return () => document.removeEventListener('keyup', handleKeyUp);
+    }, [count]);
   
+
     const handleClick = () => {
-      setCount(count + 1)
+      setCount(prev => prev + 1)
     }
   
     return (
