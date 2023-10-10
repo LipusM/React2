@@ -13,8 +13,8 @@ const Counter = () => {
     };    
   
     useEffect(() => {
-      document.addEventListener('keyup', handleKeyUp);
-      return () => document.removeEventListener('keyup', handleKeyUp);
+      document.addEventListener('keypress', handleKeyUp);
+      return () => document.removeEventListener('keypress', handleKeyUp);
     }, [count]);
   
 
