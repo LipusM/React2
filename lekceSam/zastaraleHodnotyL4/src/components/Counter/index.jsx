@@ -8,13 +8,15 @@ const Counter = () => {
 
     const handleKeyUp = (e) => {
       if (e.code === 'Space') {
+        e.preventDefault()
+
         setCount(prev => prev + 1);
       }
     };    
   
     useEffect(() => {
-      document.addEventListener('keypress', handleKeyUp);
-      return () => document.removeEventListener('keypress', handleKeyUp);
+      document.addEventListener('keyup', handleKeyUp);
+      return () => document.removeEventListener('keyup', handleKeyUp);
     }, [count]);
   
 
