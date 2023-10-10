@@ -8,7 +8,7 @@ const Counter = () => {
 
     const handleKeyUp = (e) => {
       if (e.code === 'Space') {
-        setCount(prev => prev + 1);
+        setCount((oldCount) => oldCount + 1);
       }
     };    
   
@@ -19,7 +19,7 @@ const Counter = () => {
   
 
     const handleClick = () => {
-      setCount(prev => prev + 1)
+      setCount(count + 1)
     }
   
     return (
