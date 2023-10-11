@@ -25,7 +25,7 @@ const Casovac = () => {
 
     const timerId = window.setInterval(handleTimer, 1000)
     return () => window.clearInterval(timerId)
-  }, [count])
+  }, [])
 
   const handleClick = () => {
     setCount(count + 1);

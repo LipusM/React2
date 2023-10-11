@@ -6,11 +6,29 @@ const Counter = () => {
 
     const [count, setCount] = useState(0);
 
+    /* const handleKeyUp = (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault()
+
+        setCount(prev => prev+ 1);
+      }
+    };    
+  
+    useEffect(() => {
+      document.addEventListener('keyup', handleKeyUp);
+      return () => document.removeEventListener('keyup', handleKeyUp);
+    }, []);
+  
+
+    const handleClick = () => {
+      setCount(count + 1)
+    } */
+
     const handleKeyUp = (e) => {
       if (e.code === 'Space') {
         e.preventDefault()
 
-        setCount(prev => prev + 1);
+        setCount(count + 1);
       }
     };    
   
@@ -21,7 +39,7 @@ const Counter = () => {
   
 
     const handleClick = () => {
-      setCount(prev => prev + 1)
+      setCount(count + 1)
     }
   
     return (
