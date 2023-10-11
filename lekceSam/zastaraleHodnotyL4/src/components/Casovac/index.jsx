@@ -33,12 +33,16 @@ const Casovac = () => {
 
   useEffect(() => {
     const handleTimer = (e) => {
-      setCount((oldCount) => oldCount + 1)
+      setCount(oldCount => oldCount + 1)
     }
 
     const timerId = window.setInterval(handleTimer, 1000)
     return () => window.clearInterval(timerId)
   }, [])
+
+  const handleClick = () => {
+    setCount(count + 1)
+  }
 
   return <button onClick={handleClick}>Počet: {count}</button>
 }
