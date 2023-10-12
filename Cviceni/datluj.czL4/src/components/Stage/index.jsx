@@ -24,9 +24,7 @@ const generateWord = (size) => {
     const [words, setWords] = useState(['jahoda']);
 
     const handleFinish = () => {
-        const newWord = generateWord().slice(0, 6)
-
-        setWords([newWord])
+        setWords([generateWord().slice(0, 6)])
     }
   
     return (
