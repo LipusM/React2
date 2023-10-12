@@ -1,6 +1,7 @@
 const c = console.log.bind(document)
 
 import React, { useState, useEffect } from 'react';
+import classnames from 'classnames';
 import './style.scss';
 
 const Wordbox = ({ word, onFinish }) => {
@@ -15,6 +16,9 @@ const Wordbox = ({ word, onFinish }) => {
     }
     else if(e.key === lettersLeft[0]){
       setLettersLeft( prev => prev.slice(1))
+      setMistake(false)
+    } else {
+      setMistake(true)
     }
   }
   
@@ -28,7 +32,9 @@ const Wordbox = ({ word, onFinish }) => {
 
 
   return (
-    <div className="wordbox">{lettersLeft}</div>
+    <div className={classnames("wordbox", {"wordbox--mistake": mistake})} >
+      {lettersLeft}
+    </div>
   )
 
 }
