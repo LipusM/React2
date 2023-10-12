@@ -6,6 +6,7 @@ import './style.scss';
 const Wordbox = ({ word, onFinish }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
+  const [mistake, setMistake] = useState(false)
 
   //Fce smazavající písemna a nahrazující slovo po jeho napsání
   const handleWord = (e) => {
@@ -17,6 +18,7 @@ const Wordbox = ({ word, onFinish }) => {
     }
   }
   
+  //Event listener na keyup
   useEffect(() => {
     document.addEventListener("keyup", handleWord)
 
