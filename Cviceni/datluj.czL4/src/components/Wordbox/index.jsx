@@ -25,7 +25,7 @@ const Wordbox = ({ word, onFinish }) => {
   //Event listener na keyup
   useEffect(() => {
     document.addEventListener("keyup", handleWord)
-
+    
     return () => document.removeEventListener("keyup", handleWord) 
   }, [lettersLeft])
   
