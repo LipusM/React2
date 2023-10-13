@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
-const Wordbox = ({ word, onFinish }) => {
+const Wordbox = ({ word, onFinish, active }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
   const [mistake, setMistake] = useState(false)
@@ -13,21 +13,32 @@ const Wordbox = ({ word, onFinish }) => {
   const handleWord = (e) => {
     if(e.key === lettersLeft){
       onFinish()
+
+      active = true
+      c(active)
     }
     else if(e.key === lettersLeft[0]){
       setLettersLeft( prev => prev.slice(1))
       setMistake(false)
+
+      active = true
+      c(active)
     } else {
       setMistake(true)
+
+      active = false
+      c(active)
     }
   }
   
   //Event listener na keyup
   useEffect(() => {
-    document.addEventListener("keyup", handleWord)
+    if(active){
+      document.addEventListener("keyup", handleWord)
     
-    return () => document.removeEventListener("keyup", handleWord) 
-  }, [lettersLeft])
+      return () => document.removeEventListener("keyup", handleWord) 
+    }
+  }, [lettersLeft, active])
   
 
 
