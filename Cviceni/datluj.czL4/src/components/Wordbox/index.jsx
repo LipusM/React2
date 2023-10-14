@@ -15,20 +15,17 @@ const Wordbox = ({ word, onFinish, active, onMistake }) => {
       onFinish()
 
       active = true
-      c(`1: Hodnota prop active: ${active}`)
     }
     else if(e.key === lettersLeft[0]){
       setLettersLeft( prev => prev.slice(1))
       setMistake(false)
 
       active = true
-      c(`2: Hodnota prop active: ${active}`)
     } else {
       setMistake(true)
 
       active = false
       onMistake()
-      c(`3: Hodnota prop active: ${active}`)
     }
   }
   
