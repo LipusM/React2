@@ -15,19 +15,19 @@ const Wordbox = ({ word, onFinish, active }) => {
       onFinish()
 
       active = true
-      c(active)
+      c(`1: Hodnota prop active: ${active}`)
     }
     else if(e.key === lettersLeft[0]){
       setLettersLeft( prev => prev.slice(1))
       setMistake(false)
 
       active = true
-      c(active)
+      c(`2: Hodnota prop active: ${active}`)
     } else {
       setMistake(true)
 
       active = false
-      c(active)
+      c(`3: Hodnota prop active: ${active}`)
     }
   }
   
@@ -35,9 +35,10 @@ const Wordbox = ({ word, onFinish, active }) => {
   useEffect(() => {
     if(active){
       document.addEventListener("keyup", handleWord)
-    
+      
       return () => document.removeEventListener("keyup", handleWord) 
     }
+
   }, [lettersLeft, active])
   
 
