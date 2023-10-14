@@ -38,7 +38,7 @@ const generateWord = (size) => {
   
     return (
       <div className="stage">
-        <div className="stage__mistakes">Chyb: {mistakes}</div>
+        <div className="stage__mistakes">Chyb: {mistakes}sdfg</div>
         <div className="stage__words">
           {words.map((word, index) => <Wordbox key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && true} onMistake={handleMistake}/>)}
