@@ -25,8 +25,8 @@ const generateWord = (size) => {
 
     const handleFinish = () => {
       const copy = [...words]
-      copy.splice(0,1)
-      copy.splice(2, 0, generateWord().slice(0, 6))
+      copy.splice(0,1) //Odstranění prvního elementu pole
+      copy.splice(2, 0, generateWord().slice(0, 6)) //Generování nového elementu na poslední místo pole
 
       setWords(copy)
     }
