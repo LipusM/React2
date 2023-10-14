@@ -24,7 +24,11 @@ const generateWord = (size) => {
     const [words, setWords] = useState(["jahoda", "klavesnice", "kolac"])
 
     const handleFinish = () => {
-      setWords([ generateWord().slice(0, 6)])
+      const copy = [...words]
+      copy.splice(0,1)
+      copy.splice(2, 0, generateWord().slice(0, 6))
+
+      setWords(copy)
     }
   
     return (
