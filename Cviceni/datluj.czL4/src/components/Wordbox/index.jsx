@@ -13,7 +13,7 @@ const Wordbox = ({ word, onFinish, active, evaluate }) => {
   const handleWord = (e) => {
     if(e.key === lettersLeft){
       onFinish()
-      evaluate(0, 1)
+      evaluate(0, 1) //Počet napsaných slov se zvýšil o +1
 
       active = true
     }
@@ -26,7 +26,7 @@ const Wordbox = ({ word, onFinish, active, evaluate }) => {
       setMistake(true)
 
       active = false
-      evaluate(1, 0)
+      evaluate(1, 0) //Počet chyb se zvýšil o +1
     }
   }
   
