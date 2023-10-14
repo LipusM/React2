@@ -22,25 +22,10 @@ const generateWord = (size) => {
   
   const Stage = () => {
     const [words, setWords] = useState(["jahoda", "klavesnice", "kolac"])
-    /* const [words, setWords] = useState([generateWord().slice(0, 6)]) */
-
-    /* const [countWord, setCountWord] = useState(0)
-    useEffect(() => {
-      if(countWord < 3){
-        handleFinish()
-
-        setCountWord(oldCountWord => oldCountWord + 1)
-      }
-    }, [countWord]) */
 
     const handleFinish = () => {
       setWords([ generateWord().slice(0, 6)])
     }
-
-    /* const handleFinish = () => {
-        setWords([ generateWord().slice(0, 6)])
-        setWords([generateWord(3,6)])
-    } */
   
     return (
       <div className="stage">
