@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
-const Wordbox = ({ word, onFinish, active }) => {
+const Wordbox = ({ word, onFinish, active, onMistake }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
   const [mistake, setMistake] = useState(false)
@@ -27,6 +27,7 @@ const Wordbox = ({ word, onFinish, active }) => {
       setMistake(true)
 
       active = false
+      onMistake()
       c(`3: Hodnota prop active: ${active}`)
     }
   }
@@ -39,7 +40,7 @@ const Wordbox = ({ word, onFinish, active }) => {
       return () => document.removeEventListener("keyup", handleWord) 
     }
 
-  }, [lettersLeft, active])
+  }, [lettersLeft, active, onMistake])
   
 
 
