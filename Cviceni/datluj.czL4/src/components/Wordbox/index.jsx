@@ -17,7 +17,7 @@ const Wordbox = ({ word, onFinish, active, onMistake }) => {
       active = true
     }
     else if(e.key === lettersLeft[0]){
-      setLettersLeft( prev => prev.slice(1))
+      setLettersLeft(prev => prev.slice(1))
       setMistake(false)
 
       active = true
