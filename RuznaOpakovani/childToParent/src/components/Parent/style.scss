@@ -1,0 +1,23 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    height: 100svh;
+
+    .parent{
+        border: solid 1px black;
+        width: 75%;
+        margin: auto;
+
+        background-color: lightgreen;
+
+        padding: 0px 25px 25px 25px;
+    
+        h1{
+            text-align: center;
+        }
+    }
+}
