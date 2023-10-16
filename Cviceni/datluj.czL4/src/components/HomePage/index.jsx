@@ -8,7 +8,7 @@ const HomePage = () => {
         <section id="intro-choose">
             <NavLink className={"chosen-game"} to="/hra">Bez časového omezení</NavLink>
             
-            <NavLink className={"chosen-game"} to="/hra">S časovým omezením</NavLink>
+            <NavLink className={"chosen-game"} to="/hra-na-cas">S časovým omezením</NavLink>
         </section>
     )
 }
