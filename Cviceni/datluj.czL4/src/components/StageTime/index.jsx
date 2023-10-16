@@ -51,38 +51,28 @@ const generateWord = (size) => {
     //Spuštění časovače
     useEffect(() => {
 
-      if(timer !== 0){
+      if(timer >= 0){
         startGame(timer)
-      }
+        c(timer)
+      } 
 
     }, [timer])
 
     const startGame = (chosenTime) => {
       setTimer(chosenTime)
-
-     /*  if(chosenTime === 60){
-        c("jedna minuta")
-      } else if (chosenTime === 120){
-        c("dvě minuty")
-      } else if (chosenTime === 300) {
-        c("pět minut")
-      } */
     
       if(chosenTime === 60){
-        const start = setInterval( (() => setTimer(prev => {
-          c(timer)
-          if(timer === 0){
+
+        const start = setInterval( () => setTimer(prev => {
+          if(prev !== 0){
+            return prev - 1
+          }
+          else if(prev === 0){
             clearInterval(start) 
           }
-            prev - 1
-        })), 1000 )
+            
+        }), 1000 )
       }
-
-    }
-
-    const gameTime = (chosenTime) => {
-      setTimer(chosenTime => chosenTime - 1) 
-      c(timer)
     }
   
     return (
@@ -96,7 +86,7 @@ const generateWord = (size) => {
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && true} evaluate={onEvaulation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
+          active={index === 0 && timer !==0 && true} evaluate={onEvaulation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
         </div>
       </div>
     );
