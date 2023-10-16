@@ -46,7 +46,7 @@ const generateWord = (size) => {
         <div className="stage__mistakes">Chyb: {mistakes} | Napsaná slova: {writtenWords}</div>
         <div className="stage__words">
           {words.map((word, index) => <Wordbox key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && true} evaluate={onEvaulation} />)}
+          active={index === 0 && true} evaluate={onEvaulation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
         </div>
       </div>
     );

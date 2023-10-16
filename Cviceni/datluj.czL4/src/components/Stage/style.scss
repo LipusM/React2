@@ -17,3 +17,11 @@
     flex-wrap: wrap;
     align-items: center;
   }
+
+  .active-word{
+    border: solid 2px #474b3c;
+  }
+
+  .non-active-word{
+    opacity: 0.5;
+  }

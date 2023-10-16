@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
-const Wordbox = ({ word, onFinish, active, evaluate }) => {
+const Wordbox = ({ word, onFinish, active, evaluate, firstWord }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
   const [mistake, setMistake] = useState(false)
@@ -43,7 +43,7 @@ const Wordbox = ({ word, onFinish, active, evaluate }) => {
 
 
   return (
-    <div className={classnames("wordbox", {"wordbox--mistake": mistake})} >
+    <div className={classnames("wordbox", firstWord, {"wordbox--mistake": mistake})} >
       {lettersLeft}
     </div>
   )
