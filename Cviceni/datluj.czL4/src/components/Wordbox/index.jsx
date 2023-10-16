@@ -4,6 +4,13 @@ import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
+//Jednotlivá props
+//word: Samotné slovo, které je vypsáno
+//onFinish: Po napsání prvního slova se odstraní a na konec se přidá další
+//active: Aby bylo pouze první slovo aktivní a tím pádem šlo psát
+//evaluate: počítá chyby
+//firstWord: zvýrazňuje první slovo
+
 const Wordbox = ({ word, onFinish, active, evaluate, firstWord }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
