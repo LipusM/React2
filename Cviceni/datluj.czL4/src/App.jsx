@@ -9,7 +9,6 @@ const App = () => {
 
   return (
     <div className="container">
-      {/* <h1>Datlování</h1> */}
       <Header />
       <HomePage />
         <Outlet />
