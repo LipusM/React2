@@ -1,5 +1,7 @@
 const c = console.log.bind(document)
 
+import { useState } from "react";
+
 import CartItem from "../CartItem";
 import './style.scss';
 
@@ -27,15 +29,28 @@ const products = [
 ];
 
 const Cart = () => {
+  const [cartProducts, setCartProducts] = useState(products)
+
+  const handleAmountChange = (index, amount) => {
+    const newProducts = [...cartProducts]
+
+    newProducts[index].amount = amount
+
+    setCartProducts(newProducts)
+  }
+
+  let productCount = 0
+  cartProducts.map(product => productCount += product.amount)
+
   return (
     <div className="cart">
       <div className="cart__head">
         <h2>Košík</h2>
-        <span>Položek: 1</span>
+        <span>Položek: {productCount}</span>
       </div>
       <div className="cart__items">
-        {products.map((product) => (
-          <CartItem product={product} />
+        {cartProducts.map((product, index) => (
+          <CartItem product={product} onAmountChange={amount => handleAmountChange(index, amount)} />
         ))}
       </div>
     </div>

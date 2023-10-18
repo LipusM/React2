@@ -6,19 +6,15 @@ import Amount from "../Amount"
 import CartProduct from "../CartProduct"
 import './style.scss'
 
-const CartItem = ({ product }) => {
-  const [count, setCount] = useState(product.amount)
-
-  const handleAmountChange = (newCount) => {
-      setCount(newCount)
-  }
+const CartItem = ({ product, onAmountChange }) => {
 
   return (
     <div className="cart-item">
       <CartProduct name={product.name} price={product.price} />
-      <Amount value={count} onChange={handleAmountChange} />
+      <Amount value={product.amount} onChange={onAmountChange} />
     </div>
   )
+  
 }
 
 export default CartItem
