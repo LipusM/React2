@@ -26,7 +26,7 @@ const OrderForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <EmailInput email={email} onChange={handleEmailChange}/>
+            <EmailInput email={email} createEmail={handleEmailChange}/>
             <button type="submit">Odeslat</button>
         </form>
     )

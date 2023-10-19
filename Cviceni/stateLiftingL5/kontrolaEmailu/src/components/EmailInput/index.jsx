@@ -2,14 +2,14 @@ const c = console.log.bind(document)
 
 import "./style.scss"
 
-const EmailInput = ({email, onChange}) => {
+const EmailInput = ({email, createEmail}) => {
     
     return (
       <div className="validated-input">
         <input 
           type="email"
           value={email.value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => createEmail(e.target.value)}
         />
         { 
           email.valid 
