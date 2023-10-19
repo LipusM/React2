@@ -40,8 +40,6 @@ const Cart = () => {
   }
 
   const cartAmount = () => {
-
-
     return cartProducts.reduce((sum, product) => sum += product.amount, 0)
   }
 
