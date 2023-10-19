@@ -2,23 +2,22 @@ const c = console.log.bind(document)
 
 import "./style.scss"
 
-import { useState } from "react"
-
-const EmailInput = () => {
-    const [email, setEmail] = useState('');
+const EmailInput = ({email, onChange}) => {
     
     return (
       <div className="validated-input">
         <input 
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={email.value}
+          onChange={(e) => onChange(e.target.value)}
         />
         { 
-          email.includes('@') 
+          email.valid 
           ? null 
           : <div className="invalid-msg">Invalid email address</div>
         }
       </div>
     )
   }
+
+  export default EmailInput
