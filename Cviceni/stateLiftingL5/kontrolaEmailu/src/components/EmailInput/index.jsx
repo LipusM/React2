@@ -9,7 +9,7 @@ const EmailInput = ({email, setEmail}) => {
         <input 
           type="email"
           value={email.value}
-          onChange={(e) => setEmail(e.target.value)}/>
+          onChange={ e => setEmail(e.target.value)}/>
         { 
           email.valid 
           ? null 
