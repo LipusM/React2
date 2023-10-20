@@ -13,7 +13,7 @@ const ToppingsSelect = ({ toppings }) => {
     selection[index].selected = !selection[index].selected
 
     setChecked(selection)
-    c(selection[index]) //Výpis prvku, jestli se opravdu vypisuje ten, na který se kliklo a ano, vypisuje se ten, na který se kliklo
+    c(selection[index]) //Test, jestli se opravdu vypisuje ten prvek, na který se kliklo a ano, vypisuje se ten, na který se kliklo
   }
 
   return (
