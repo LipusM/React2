@@ -3,18 +3,11 @@ const c = console.log.bind(document)
 import Check from "../Check"
 import './style.scss'
 
-import { useState } from "react"
-
-const Topping = ({ topping }) => {
-  const [checked, setChecked] = useState(false)
-  
-  const handleClick = () => {
-    setChecked(!checked);
-  }
+const Topping = ({topping, checked, selectTopping}) => {
 
   return (
     <div className="topping">
-      <Check checked={checked} onChange={handleClick}/>
+      <Check checked={checked} onChange={selectTopping}/>
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>
