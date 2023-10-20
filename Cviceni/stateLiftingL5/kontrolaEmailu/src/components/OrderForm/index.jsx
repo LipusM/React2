@@ -15,7 +15,7 @@ const OrderForm = () => {
     const handleEmailChange = (newValue) => {
         setEmail({
             value: newValue,
-            valid: newValue.includes("@"),
+            valid: newValue === "pokusnik.kokosnik@example.com", //newValue.includes("@")
         })
     }
 
