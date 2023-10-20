@@ -22,7 +22,7 @@ const ToppingsSelect = ({ toppings }) => {
       <p>Selected toppings: 0, total price: 0 Euro</p>
         
       <div className="toppings">
-        {toppings.map((topping, index) => <Topping topping={topping} checked={checked.selected} selectTopping={() => handleClick(index)} key={topping.name} />)}
+        {toppings.map((topping, index) => <Topping topping={topping} checked={checked[index].selected} selectTopping={() => handleClick(index)} key={topping.name} />)}
       </div>
     </>
   )
