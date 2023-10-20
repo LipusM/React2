@@ -10,9 +10,10 @@ const ToppingsSelect = ({ toppings }) => {
   
   const handleClick = (index) => {
     const selection = [...checked]
-    selection[index].selected = true 
+    selection[index].selected = !selection[index].selected
 
     setChecked(selection)
+    c(selection[index]) //Výpis prvku, jestli se opravdu vypisuje ten, na který se kliklo a ano, vypisuje se ten, na který se kliklo
   }
 
   return (
