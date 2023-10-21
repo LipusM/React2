@@ -3,7 +3,7 @@ const c = console.log.bind(document)
 import Topping from "../Topping"
 import './style.scss'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
@@ -14,7 +14,6 @@ const ToppingsSelect = ({ toppings }) => {
     selection[index].selected = !selection[index].selected
 
     setChecked(selection)
-    c(checked) //Test, jestli se opravdu vypisuje ten prvek, na který se kliklo a ano, vypisuje se ten, na který se kliklo
   }
 
   //Fce pro vyhodnocení počtu vybraných topping
@@ -24,8 +23,7 @@ const ToppingsSelect = ({ toppings }) => {
 
   //Fce pro vyhodnocení celkové ceny vybraných topping
   const toppingPrice = () => {
-    return checked.reduce((sum, chosenTopping) => sum += chosenTopping.price, 0).toFixed(2)
-
+      return checked.reduce((sum, chosenTopping) => sum += chosenTopping.price, 0).toFixed(2)
   }
 
   return (
