@@ -3,7 +3,7 @@ const c = console.log.bind(document)
 import Topping from "../Topping"
 import './style.scss'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
@@ -23,6 +23,13 @@ const ToppingsSelect = ({ toppings }) => {
     }
     
   }
+
+  //Když má být výsledna cena 0.00, tak někdy to je -0.00, což je špatně. Toto zajistí, že když to má být 0, tak to je 0
+  useEffect(() => {
+    if(toppingPrice < 0){
+      setToppingPrice(0)
+    }
+  }, [checked])
 
   //Fce pro vyhodnocení počtu vybraných topping
   const toppingAmount = () => {
