@@ -57,7 +57,6 @@ const generateWord = (size) => {
     }, [timer])
 
     const startGame = (chosenTime) => {
-      setTimer(chosenTime)
     
       if(chosenTime === 60){
 
@@ -68,19 +67,19 @@ const generateWord = (size) => {
           else if(prev === 0){
             clearInterval(start) 
           }
-            
         }), 1000 )
       }
+
     }
   
     return (
       <div className="stage">
         <div className="stage__time">
-            <div onClick={() => setTimer(60)}>1 minuta</div>
+            <button className="stage-time-selection" onClick={() => setTimer(60)}>1 minuta</button>
             |
-            <div onClick={() => setTimer(120)}>2 minuty</div>
+            <button className="stage-time-selection" onClick={() => setTimer(120)}>2 minuty</button>
             |
-            <div onClick={() => setTimer(300)}>5 minut</div>
+            <button className="stage-time-selection" onClick={() => setTimer(300)}>5 minut</button>
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
