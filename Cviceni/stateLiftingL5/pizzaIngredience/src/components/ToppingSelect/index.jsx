@@ -14,6 +14,7 @@ const ToppingsSelect = ({ toppings }) => {
     selection[index].selected = !selection[index].selected
 
     setChecked(selection)
+    c(selection[index].price)
   }
 
   //Fce pro vyhodnocení počtu vybraných topping
@@ -25,6 +26,7 @@ const ToppingsSelect = ({ toppings }) => {
   const toppingPrice = () => {
       return checked.reduce((sum, chosenTopping) => sum += chosenTopping.price, 0).toFixed(2)
   }
+
 
   return (
     <>
