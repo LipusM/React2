@@ -3,7 +3,7 @@ const c = console.log.bind(document)
 import Topping from "../Topping"
 import './style.scss'
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
@@ -15,7 +15,6 @@ const ToppingsSelect = ({ toppings }) => {
     selection[index].selected = !selection[index].selected
 
     setChecked(selection)
-    c(selection[index].price)
 
     if(selection[index].selected){
       setToppingPrice(prev => prev + selection[index].price)
