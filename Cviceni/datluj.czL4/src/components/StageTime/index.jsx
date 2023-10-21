@@ -83,7 +83,7 @@ const generateWord = (size) => {
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && timer !==0 && true} evaluate={onEvaulation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
+          active={index === 0 && timer !==0 && true} evaluate={onEvaulation} firstWord={index === 0 && timer > 0 ? "active-word" : "non-active-word"}/>)}
         </div>
       </div>
     );
