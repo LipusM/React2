@@ -11,7 +11,7 @@ import './style.scss';
 //evaluate: počítá chyby
 //firstWord: zvýrazňuje první slovo
 
-const WordboxTime = ({ word, onFinish, active, evaluate, firstWord }) => {
+const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft }) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
   const [mistake, setMistake] = useState(false)
@@ -39,13 +39,13 @@ const WordboxTime = ({ word, onFinish, active, evaluate, firstWord }) => {
   
   //Event listener na keyup
   useEffect(() => {
-    if(active){
+    if(active && timeLeft > 0){
       document.addEventListener("keyup", handleWord)
       
       return () => document.removeEventListener("keyup", handleWord) 
     }
 
-  }, [lettersLeft, active, evaluate])
+  }, [lettersLeft, active, evaluate, timeLeft])
   
 
 
