@@ -24,7 +24,7 @@ const ToppingsSelect = ({ toppings }) => {
     
   }
 
-  //Když má být výsledna cena 0.00, tak někdy to je -0.00, což je špatně. Toto zajistí, že když to má být 0, tak to je 0
+  //Když má být výsledna cena 0.00, tak někdy to je -0.00, což je špatně. Toto zajistí, že když to má být 0.00, tak to je 0.00.
   useEffect(() => {
     if(toppingPrice < 0){
       setToppingPrice(0)
