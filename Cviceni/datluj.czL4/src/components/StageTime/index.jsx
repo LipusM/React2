@@ -50,12 +50,10 @@ const generateWord = (size) => {
 
     //Spuštění časovače
     useEffect(() => {
-
       if(timer >= 0){
         startGame(timer)
         c(timer)
       } 
-
     }, [timer])
 
     const startGame = (chosenTime) => {
