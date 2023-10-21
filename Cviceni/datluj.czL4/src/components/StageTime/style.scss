@@ -20,6 +20,10 @@
     width: 25%;
 
     background-color: #8fb935;
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   .stage__words {
