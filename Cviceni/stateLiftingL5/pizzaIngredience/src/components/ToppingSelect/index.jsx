@@ -8,6 +8,7 @@ import { useState } from "react"
 const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
   
+  //Fce pro vybírání topping
   const handleClick = (index) => {
     const selection = [...checked]
     selection[index].selected = !selection[index].selected
