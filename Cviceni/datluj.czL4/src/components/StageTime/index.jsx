@@ -24,7 +24,7 @@ const generateWord = (size) => {
     //Iniciální nastavení slov
     const [words, setWords] = useState(["jahoda", "klavesnice", "kolac"])
 
-    //Vyhodnocování psaní
+    //Vyhodnocování psaní, počet chyb a napsaných slov. 
     const [evaulation, setEvaluation] = useState({
       mistakes: 0,
       writtenWords: 0
