@@ -9,7 +9,7 @@ const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
   const [toppingPrice, setToppingPrice] = useState(0)
   
-  //Fce pro vybírání topping
+  //Fce pro vybírání topping a určování celkové ceny
   const handleClick = (index) => {
     const selection = [...checked]
     selection[index].selected = !selection[index].selected
