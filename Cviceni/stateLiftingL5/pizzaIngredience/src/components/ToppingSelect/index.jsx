@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 
 const ToppingsSelect = ({ toppings }) => {
   const [checked, setChecked] = useState(toppings)
+  const [toppingPrice, setToppingPrice] = useState(0)
   
   //Fce pro vybírání topping
   const handleClick = (index) => {
@@ -15,6 +16,13 @@ const ToppingsSelect = ({ toppings }) => {
 
     setChecked(selection)
     c(selection[index].price)
+
+    if(selection[index].selected){
+      setToppingPrice(prev => prev + selection[index].price)
+    } else {
+      setToppingPrice(prev => prev - selection[index].price)
+    }
+    
   }
 
   //Fce pro vyhodnocení počtu vybraných topping
@@ -23,15 +31,15 @@ const ToppingsSelect = ({ toppings }) => {
   }
 
   //Fce pro vyhodnocení celkové ceny vybraných topping
-  const toppingPrice = () => {
+  /* const toppingPrice = () => {
       return checked.reduce((sum, chosenTopping) => sum += chosenTopping.price, 0).toFixed(2)
-  }
+  } */
 
 
   return (
     <>
       <p>Choose as many toppings as you want</p>
-      <p>Selected toppings: {toppingAmount()}, total price: {toppingPrice()} Euro</p>
+      <p>Selected toppings: {toppingAmount()}, total price: {toppingPrice.toFixed(2)} Euro</p>
         
       <div className="toppings">
         {toppings.map((topping, index) => <Topping topping={topping} checked={checked[index].selected} 
