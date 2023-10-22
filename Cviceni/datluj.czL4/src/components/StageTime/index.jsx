@@ -20,14 +20,15 @@ const generateWord = (size) => {
     return words[wordIndex];
   };
   
+  /**********Fce nastavující slova, počítající chyby a počet nap. slov, generující nová slova**********/
   const StageTime = () => {
     //Iniciální nastavení slov
-    const [words, setWords] = useState(["jahoda", "klavesnice", "kolac"])
+    const [words, setWords] = useState([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
 
     //Vyhodnocování psaní, počet chyb a napsaných slov. 
     const [evaulation, setEvaluation] = useState({
       mistakes: 0,
-      writtenWords: 0
+      writtenWords: 0,
     })
     const {mistakes, writtenWords} = evaulation
 
@@ -50,27 +51,22 @@ const generateWord = (size) => {
 
     //Spuštění časovače
     useEffect(() => {
-      if(timer >= 0){
-        startGame(timer)
-        c(timer)
-      } 
-    }, [timer])
-
-    const startGame = (chosenTime) => {
-    
-      if(chosenTime === 60){
-
-        const start = setInterval( () => setTimer(prev => {
-          if(prev !== 0){
-            return prev - 1
-          }
-          else if(prev === 0){
-            clearInterval(start) 
-          }
-        }), 1000 )
+      let interval
+      // Nastavit interval, který zvyšuje stav `count` každou sekundu
+      if(timer > 0){
+        interval = setInterval(() => {
+          setTimer(prevCount => prevCount - 1);
+        }, 1000);
+      }
+      c(timer)
+  
+      // Odpojení časovače
+      return () => {
+        clearInterval(interval);
       }
 
-    }
+    }, [timer])
+    
   
     return (
       <div className="stage">
@@ -79,7 +75,7 @@ const generateWord = (size) => {
             |
             <button className="stage-time-selection" onClick={() => setTimer(120)}>2 minuty</button>
             |
-            <button className="stage-time-selection" onClick={() => setTimer(300)}>5 minut</button>
+            <button className="stage-time-selection" onClick={() => setTimer(180)}>3 minuty</button>
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
