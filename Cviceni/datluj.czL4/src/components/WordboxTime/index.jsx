@@ -10,6 +10,7 @@ import './style.scss';
 //active: Aby bylo pouze první slovo aktivní a tím pádem šlo psát
 //evaluate: počítá chyby
 //firstWord: zvýrazňuje první slovo
+//timeLeft: zbývající čas hry
 
 const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft }) => {
 
@@ -37,12 +38,17 @@ const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft }) 
     }
   }
   
-  //Event listener na keyup
+  /**********Spouštení fce handleWord**********/
   useEffect(() => {
     if(active && timeLeft > 0){
       document.addEventListener("keyup", handleWord)
       
       return () => document.removeEventListener("keyup", handleWord) 
+    }
+
+    //Zbývající čas = 0, tak se deaktivuje možnost psaní
+    if(timeLeft === 0){
+      setMistake(false)
     }
 
   }, [lettersLeft, active, evaluate, timeLeft])
