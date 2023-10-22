@@ -25,12 +25,13 @@ const generateWord = (size) => {
     //Iniciální nastavení slov
     const [words, setWords] = useState([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
 
-    //Vyhodnocování psaní, počet chyb a napsaných slov. 
+    //Vyhodnocuje počet chyb, napsaných slov a zbývající čas 
     const [evaulation, setEvaluation] = useState({
       mistakes: 0,
       writtenWords: 0,
+      remaningTime: 0,
     })
-    const {mistakes, writtenWords} = evaulation
+    const {mistakes, writtenWords, remaningTime} = evaulation
 
     //Nastavení času hry
     const [timer, setTimer] = useState(0)
@@ -52,35 +53,35 @@ const generateWord = (size) => {
     //Spuštění časovače
     useEffect(() => {
       let interval
-      // Nastavit interval, který zvyšuje stav `count` každou sekundu
-      if(timer > 0){
+      // Odečítání 1 od iniciální hodnoty co 1s
+      if(remaningTime > 0){
         interval = setInterval(() => {
-          setTimer(prevCount => prevCount - 1);
+          setEvaluation({...evaulation, remaningTime: remaningTime - 1});
         }, 1000);
+      } else {
+        setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
       }
-      c(timer)
+      c(remaningTime)
   
       // Odpojení časovače
-      return () => {
-        clearInterval(interval);
-      }
+      return () => clearInterval(interval)
 
-    }, [timer])
+    }, [remaningTime])
     
   
     return (
       <div className="stage">
         <div className="stage__time">
-            <button className="stage-time-selection" onClick={() => setTimer(60)}>1 minuta</button>
+            <button className="stage-time-selection" onClick={() => setEvaluation({...evaulation, remaningTime: 60})}>1 minuta</button>
             |
-            <button className="stage-time-selection" onClick={() => setTimer(120)}>2 minuty</button>
+            <button className="stage-time-selection" onClick={() => setEvaluation({...evaulation, remaningTime: 120})}>2 minuty</button>
             |
-            <button className="stage-time-selection" onClick={() => setTimer(180)}>3 minuty</button>
+            <button className="stage-time-selection" onClick={() => setEvaluation({...evaulation, remaningTime: 180})}>3 minuty</button>
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && timer !==0 && true} evaluate={onEvaulation} 
-          firstWord={index === 0 && timer > 0 ? "active-word" : "non-active-word"} timeLeft={timer}/>)}
+          active={index === 0 && remaningTime !==0 && true} evaluate={onEvaulation} 
+          firstWord={index === 0 && remaningTime > 0 ? "active-word" : "non-active-word"} timeLeft={remaningTime}/>)}
         </div>
       </div>
     );
