@@ -46,7 +46,7 @@ const generateWord = (size) => {
     }
 
     //Vyhodnocuje počet chyb a napsaných slov
-    const onEvaulation = (mistake, word) => {
+    const onEvaluation = (mistake, word) => {
       setEvaluation({...evaulation, mistakes: mistakes + mistake, writtenWords: writtenWords + word})
     }
 
@@ -80,7 +80,7 @@ const generateWord = (size) => {
         </div>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && remaningTime !==0 && true} evaluate={onEvaulation} 
+          active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
           firstWord={index === 0 && remaningTime > 0 ? "active-word" : "non-active-word"} timeLeft={remaningTime}/>)}
         </div>
       </div>
