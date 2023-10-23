@@ -9,7 +9,7 @@
     gap: 20px;
 
     #restart-button{
-        transition: transform 1s ease-in-out;
+        transition: transform 500ms ease-in-out;
         img{
             height: 1rem;
         }
@@ -17,6 +17,10 @@
     .rotate {
         transform: rotate(360deg);
       }
+
+    .not-rotate{
+        transform: rotate(-360deg);
+    }
 
 }
   
