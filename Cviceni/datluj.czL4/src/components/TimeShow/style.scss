@@ -1,7 +1,22 @@
 #time-show{
-    /* border: solid 1px red; */
-
     margin: 25px 0px;
 
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    #restart-button{
+        transition: transform 1s ease-in-out;
+        img{
+            height: 1rem;
+        }
+    }
+    .rotate {
+        transform: rotate(360deg);
+      }
+
 }
+  

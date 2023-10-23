@@ -9,6 +9,8 @@ import wordList from '../../word-list';
 
 import './style.scss'
 
+import refreshButton from "../../assets/refresh.svg"
+
 const generateWord = (size) => {
     const sizeIndex = size === undefined
       ? Math.floor(Math.random() * wordList.length)
@@ -108,8 +110,7 @@ const generateWord = (size) => {
             <button disabled={!activeButton} className="stage-time-selection" onClick={() => setEvaluation({...evaluation, remaningTime: 180})}>3 minuty</button>
         </div> */}
         <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
-        <TimeShow timeLeft={remaningTime}/>
-        <p onClick={restartTimer}>Reset</p>
+        <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
