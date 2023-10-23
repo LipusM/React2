@@ -17,5 +17,12 @@
           cursor: pointer;
         }
       }
-      
+      .active-button{
+        border: solid 2px #20201a;
+      }
+    
+      .non-active-button{
+        opacity: 0.5;
+        color: black;
+      }
   }
