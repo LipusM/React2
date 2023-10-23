@@ -46,8 +46,7 @@ const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft }) 
       return () => document.removeEventListener("keyup", handleWord) 
     }
 
-    //Zbývající čas = 0, tak se deaktivuje možnost psaní
-    if(timeLeft === 0){
+    if(timeLeft === 0){ //Zbývající čas = 0, tak se deaktivuje možnost psaní
       setMistake(false)
     }
 
