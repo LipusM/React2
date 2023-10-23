@@ -37,6 +37,7 @@ const generateWord = (size) => {
     })
     const {mistakes, writtenWords, remaningTime, activeButton} = evaluation
 
+    //Hodnoty času, na základě kterých bude vznikat tlačítko
     const chosenTime = [
       {
         textTime: "1 minuta",
@@ -72,7 +73,11 @@ const generateWord = (size) => {
 
     //Spuštění časovače
     const startTimer = (yourTime) => {
-      setEvaluation({...evaluation, remaningTime: yourTime})
+      setEvaluation({...evaluation, remaningTime: yourTime, activeButton: false})
+    }
+
+    const restartTimer = (yourTime) => {
+      setEvaluation({...evaluation, remaningTime: 0, activeButton: true})
     }
 
     useEffect(() => {
@@ -84,6 +89,7 @@ const generateWord = (size) => {
         }, 1000);
       } else {
         setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
+        setEvaluation({...evaluation, activeButton: true})
       }
       c(remaningTime)
   
@@ -101,9 +107,9 @@ const generateWord = (size) => {
             |
             <button disabled={!activeButton} className="stage-time-selection" onClick={() => setEvaluation({...evaluation, remaningTime: 180})}>3 minuty</button>
         </div> */}
-        <TimeButtons theTime={chosenTime} setYourTime={startTimer}/>
+        <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
         <TimeShow timeLeft={remaningTime}/>
-        <p></p>
+        <p onClick={restartTimer}>Reset</p>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
