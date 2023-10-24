@@ -22,7 +22,7 @@ const TimeShow = ({timeLeft, restartTime}) => {
             <p id="time-text">
                 Zbývající čas: {timeLeft}
             </p>
-            <div id="restart-button" onClick={handleRotateButtonClick} className={rotating ? "rotate" : "not-rotate"}>
+            <div id="restart-button" onClick={handleRotateButtonClick} className={!rotating && "not-rotate"}>
                 <img onClick={restartTime} src={refreshButton} /> 
             </div>
         </div>
