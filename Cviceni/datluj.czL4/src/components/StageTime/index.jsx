@@ -36,7 +36,7 @@ const generateWord = (size) => {
       mistakes: 0,
       writtenWords: 0,
       remaningTime: 0,
-      activeButton: true,
+      activeButton: false,
     })
     const {mistakes, writtenWords, remaningTime, activeButton} = evaluation
 
@@ -57,7 +57,7 @@ const generateWord = (size) => {
     ]
 
     //Nastavení času hry
-    const [timer, setTimer] = useState(0)
+    /* const [timer, setTimer] = useState(0) */
 
     //Fce pro odstranění prvního slova po napsání a generování nového na konec
     const handleFinish = () => {
@@ -103,16 +103,11 @@ const generateWord = (size) => {
   
     return (
       <div className="stage">
-        {/* <div className="stage__time">
-            <button disabled={!activeButton} className="stage-time-selection" onClick={() => setEvaluation({...evaluation, remaningTime: 60})}>1 minuta</button>
-            |
-            <button disabled={!activeButton} className="stage-time-selection" onClick={() => setEvaluation({...evaluation, remaningTime: 120})}>2 minuty</button>
-            |
-            <button disabled={!activeButton} className="stage-time-selection" onClick={() => setEvaluation({...evaluation, remaningTime: 180})}>3 minuty</button>
-        </div> */}
         <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
-        <PlayerName appearComponent={false}/>
+        {/* <PlayerName appearComponent={false}/> */}
+        {/* <PlayerName /> */}
+        {!activeButton && <PlayerName />}
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
