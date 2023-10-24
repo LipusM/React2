@@ -15,7 +15,6 @@ const TimeShow = ({timeLeft, restartTime}) => {
             setRotating(false)
         }
       };
-    
 
     return (
         <div id="time-show">

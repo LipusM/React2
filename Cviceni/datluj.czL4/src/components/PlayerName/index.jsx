@@ -1,30 +1,23 @@
-const c = console.log.bind(document)
+const c = console.log.bind(document);
 
-import "./style.scss"
+import "./style.scss";
 
-import { useState, useEffect } from "react"
-import classnames from "classnames"
+import { useState } from "react";
 
-const PlayerName = ({appearComponent}) => {
-    /* const [saveResult, setSaveResult] = useState({
-        name: "",
-        windowAppear: true,
-    })
-    const {name, windowAppear} = saveResult
+const PlayerName = ({ displaySubmission, nameValue }) => {
 
-    const registerName = () => {
-        setSaveResult(prev => ({...prev, windowAppear: false}))
-        c(windowAppear)
-    } */
+    /* const [nameValue, setNameValue] = useState("") */
 
-    return(
-        <div id="player-name" 
-        /* className={classnames(appearComponent ? "appear" : "hide")} */>
-            <input type="text" placeholder="Vaše jméno"/>
-            {/* <button onClick={registerName}>Uložit výsledek</button> */}
-            <button>Uložit výsledek</button>
-        </div>
-    )
+  return (
+    <div id="player-name">
+      <span>Mimimálně tři znaky</span>
+      <div id="player-values">
+        <input value={nameValue} type="text" placeholder="Vaše jméno" />
+        <button onClick={() => displaySubmission(nameValue)}>Uložte jméno</button>
+      </div>
+    </div>
+  )
+
 }
 
-export default PlayerName
+export default PlayerName;

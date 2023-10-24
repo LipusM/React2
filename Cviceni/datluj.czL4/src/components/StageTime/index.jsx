@@ -10,8 +10,6 @@ import wordList from '../../word-list';
 
 import './style.scss'
 
-import refreshButton from "../../assets/refresh.svg"
-
 const generateWord = (size) => {
     const sizeIndex = size === undefined
       ? Math.floor(Math.random() * wordList.length)
@@ -31,7 +29,7 @@ const generateWord = (size) => {
     //Iniciální nastavení slov
     const [words, setWords] = useState([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
 
-    //Vyhodnocuje počet chyb, napsaných slov a zbývající čas 
+    //Vyhodnocuje počet chyb, napsaných slov, zbývající čas, zda-li tlačítka jsou/nejsou aktivní
     const [evaluation, setEvaluation] = useState({
       mistakes: 0,
       writtenWords: 0,
@@ -39,6 +37,9 @@ const generateWord = (size) => {
       activeButton: true,
     })
     const {mistakes, writtenWords, remaningTime, activeButton} = evaluation
+
+    //Zobrazení a skrytí boxu s jménem hráče. Při prvním načtení komponenty skryto,
+    const [submission, setSubmission] = useState(false)
 
     //Hodnoty času, na základě kterých bude vznikat tlačítko
     const chosenTime = [
@@ -74,13 +75,19 @@ const generateWord = (size) => {
     }
 
 
-    //Spuštění časovače
+    //Fce deaktivující tlačítka času po jeho spuštění
     const startTimer = (yourTime) => {
       setEvaluation({...evaluation, remaningTime: yourTime, activeButton: false})
     }
 
-    const restartTimer = (yourTime) => {
+    //Fce resetující čas (resp. vrací do původního stavu)
+    const restartTimer = () => {
       setEvaluation({...evaluation, remaningTime: 0, activeButton: true})
+    }
+
+    //Fce skrývající box s jménem hráče
+    const playerName = () => {
+      setSubmission(prev => !prev)
     }
 
     useEffect(() => {
@@ -93,6 +100,7 @@ const generateWord = (size) => {
       } else {
         setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
         setEvaluation({...evaluation, activeButton: true})
+        playerName()
       }
       c(remaningTime)
   
@@ -107,7 +115,9 @@ const generateWord = (size) => {
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
         {/* <PlayerName appearComponent={false}/> */}
         {/* <PlayerName /> */}
-        {!activeButton && <PlayerName />}
+        {submission && <PlayerName displaySubmission={playerName}/>}
+        {/* {visibility && <PlayerName displaySubmission={playerName}/>} */}
+
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 

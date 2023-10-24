@@ -12,7 +12,7 @@ import './style.scss';
 //firstWord: zvýrazňuje první slovo
 //timeLeft: zbývající čas hry
 
-const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft }) => {
+const WordboxTime = ({ word, onFinish, active, evaluate, firstWord, timeLeft}) => {
 
   const [lettersLeft, setLettersLeft] = useState(word)
   const [mistake, setMistake] = useState(false)
