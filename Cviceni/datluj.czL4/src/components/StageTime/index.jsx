@@ -36,7 +36,7 @@ const generateWord = (size) => {
       mistakes: 0,
       writtenWords: 0,
       remaningTime: 0,
-      activeButton: false,
+      activeButton: true,
     })
     const {mistakes, writtenWords, remaningTime, activeButton} = evaluation
 
