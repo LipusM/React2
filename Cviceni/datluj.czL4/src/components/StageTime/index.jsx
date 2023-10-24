@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import WordboxTime from '../WordboxTime';
 import TimeShow from '../TimeShow';
 import TimeButtons from '../TimeButtons';
+import PlayerName from '../PlayerName';
 
 import wordList from '../../word-list';
 
@@ -111,6 +112,7 @@ const generateWord = (size) => {
         </div> */}
         <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
+        <PlayerName appearComponent={false}/>
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
