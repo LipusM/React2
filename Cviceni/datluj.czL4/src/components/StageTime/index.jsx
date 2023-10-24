@@ -85,9 +85,12 @@ const generateWord = (size) => {
       setEvaluation({...evaluation, remaningTime: 0, activeButton: true})
     }
 
+    const [playerValue, setPlayerValue] = useState("")
     //Fce skrývající box s jménem hráče
-    const playerName = () => {
+    const playerName = (yourName) => {
       setSubmission(prev => !prev)
+      setPlayerValue(yourName)
+      c(playerValue)
     }
 
     useEffect(() => {
@@ -101,6 +104,7 @@ const generateWord = (size) => {
         setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
         setEvaluation({...evaluation, activeButton: true})
         playerName()
+        /* setSubmission(prev => !prev) */
       }
       c(remaningTime)
   
@@ -115,7 +119,7 @@ const generateWord = (size) => {
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
         {/* <PlayerName appearComponent={false}/> */}
         {/* <PlayerName /> */}
-        {submission && <PlayerName displaySubmission={playerName}/>}
+        {submission && <PlayerName displaySubmission={playerName} inputValue={playerValue}/>}
         {/* {visibility && <PlayerName displaySubmission={playerName}/>} */}
 
         <div className="stage__words">

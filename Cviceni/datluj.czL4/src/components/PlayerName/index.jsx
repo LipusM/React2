@@ -4,16 +4,17 @@ import "./style.scss";
 
 import { useState } from "react";
 
-const PlayerName = ({ displaySubmission, nameValue }) => {
+const PlayerName = ({ displaySubmission, inputValue }) => {
 
-    /* const [nameValue, setNameValue] = useState("") */
+    const [nameValue, setNameValue] = useState("")
 
   return (
     <div id="player-name">
       <span>Mimimálně tři znaky</span>
       <div id="player-values">
-        <input value={nameValue} type="text" placeholder="Vaše jméno" />
-        <button onClick={() => displaySubmission(nameValue)}>Uložte jméno</button>
+        <input value={inputValue} onChange={inputValue} type="text" placeholder="Vaše jméno" />
+        {/* <button onClick={displaySubmission}>Uložte jméno</button> */}
+        <button onClick={() => displaySubmission(inputValue)}>Uložte jméno</button>
       </div>
     </div>
   )
