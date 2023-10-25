@@ -29,7 +29,7 @@ const generateWord = (size) => {
     //Iniciální nastavení slov
     const [words, setWords] = useState([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
 
-    //Vyhodnocuje počet chyb, napsaných slov, zbývající čas, zda-li tlačítka jsou/nejsou aktivní
+    //Ukládá počet chyb, napsaných slov, zbývající čas, zda-li tlačítka jsou/nejsou aktivní
     const [evaluation, setEvaluation] = useState({
       mistakes: 0,
       writtenWords: 0,
@@ -57,10 +57,10 @@ const generateWord = (size) => {
         }
     ]
 
-    //Nastavení času hry
-    /* const [timer, setTimer] = useState(0) */
+    //Stav pro jméno hráče
+    const [playerValue, setPlayerValue] = useState("")
 
-    //Fce pro odstranění prvního slova po napsání a generování nového na konec
+    /***** Fce pro odstranění prvíno slova po napsání a generování nového na konec *****/
     const handleFinish = () => {
       const copy = [...words]
       copy.splice(0,1) //Odstranění prvního elementu pole
@@ -69,24 +69,23 @@ const generateWord = (size) => {
       setWords(copy)
     }
 
-    //Vyhodnocuje počet chyb a napsaných slov
+    /*****Fce vyhodnocující počet chyb a napsaných slov*****/
     const onEvaluation = (mistake, word) => {
       setEvaluation({...evaluation, mistakes: mistakes + mistake, writtenWords: writtenWords + word})
     }
 
 
-    //Fce deaktivující tlačítka času po jeho spuštění
+    /*****Fce deaktivující tlačítka času po jeho spuštění*****/
     const startTimer = (yourTime) => {
       setEvaluation({...evaluation, remaningTime: yourTime, activeButton: false})
     }
 
-    //Fce resetující čas (resp. vrací do původního stavu)
+    /*****Fce resetující čas (resp. vrací do původního stavu)*****/
     const restartTimer = () => {
       setEvaluation(prev => ({...prev, remaningTime: 0, activeButton: true}))
     }
 
-    const [playerValue, setPlayerValue] = useState("")
-    //Fce skrývající box s jménem hráče
+    /*****Fce skrývající box pro jméno hráče poté, co se jméno uloží*****/
     const playerName = (yourName) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
@@ -109,7 +108,6 @@ const generateWord = (size) => {
         setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
         setEvaluation({...evaluation, activeButton: true})
         playerName()
-        /* setSubmission(prev => !prev) */
       }
       c(remaningTime)
   
