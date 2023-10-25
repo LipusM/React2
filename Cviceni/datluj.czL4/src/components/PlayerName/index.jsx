@@ -12,7 +12,7 @@ const PlayerName = ({ displaySubmission, inputValue }) => {
     <div id="player-name">
       <span>Mimimálně tři znaky</span>
       <div id="player-values">
-        <input value={inputValue} onChange={inputValue} type="text" placeholder="Vaše jméno" />
+        <input value={inputValue} onChange={e => {inputValue = e.target.value}} type="text" placeholder="Vaše jméno" />
         {/* <button onClick={displaySubmission}>Uložte jméno</button> */}
         <button onClick={() => displaySubmission(inputValue)}>Uložte jméno</button>
       </div>
@@ -21,4 +21,4 @@ const PlayerName = ({ displaySubmission, inputValue }) => {
 
 }
 
-export default PlayerName;
+export default PlayerName

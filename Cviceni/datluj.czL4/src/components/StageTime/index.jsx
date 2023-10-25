@@ -82,7 +82,7 @@ const generateWord = (size) => {
 
     //Fce resetující čas (resp. vrací do původního stavu)
     const restartTimer = () => {
-      setEvaluation({...evaluation, remaningTime: 0, activeButton: true})
+      setEvaluation(prev => ({...prev, remaningTime: 0, activeButton: true}))
     }
 
     const [playerValue, setPlayerValue] = useState("")
@@ -90,7 +90,7 @@ const generateWord = (size) => {
     const playerName = (yourName) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
-      c(playerValue)
+      c(yourName)
     }
 
     useEffect(() => {
@@ -131,4 +131,4 @@ const generateWord = (size) => {
     );
   };
   
-  export default StageTime;
+  export default StageTime
