@@ -98,12 +98,15 @@ const generateWord = (size) => {
       c(`Mistakes: ${mistakes}, written words: ${writtenWords} and chosen time: ${remaningTime}`)
     } */
 
-    const playerName = (yourName) => {
+    const [selectedTime, setSelectedTime] = useState(null);
+
+    const playerName = (yourName, selectedTime) => {
       const newStat = [{
         name: yourName,
         mistakes: mistakes,
         writtenWords: writtenWords,
         remaningTime: remaningTime,
+        selectedTime: selectedTime,
       }];
       setPlayerStats((prevStats) => [...prevStats, newStat]);
       setSubmission((prev) => !prev);
@@ -134,7 +137,7 @@ const generateWord = (size) => {
   
     return (
       <div className="stage">
-        <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
+        <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton} />
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
 
         <div className="stage__mistakes">Chyb: {mistakes} | Napsaná slova: {writtenWords}</div>

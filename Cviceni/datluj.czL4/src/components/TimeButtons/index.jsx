@@ -3,7 +3,7 @@ const c = console.log.bind(document)
 import "./style.scss"
 import classnames from "classnames"
 
-const TimeButtons = ({theTime, setYourTime, makeActive, newValues}) => {
+const TimeButtons = ({theTime, setYourTime, makeActive}) => {
     
     return (
         <div className="stage__time">
