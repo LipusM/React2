@@ -91,6 +91,11 @@ const generateWord = (size) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
       c(yourName)
+
+      if(yourName === undefined){
+        c("auky")
+      }
+      
     }
 
     useEffect(() => {
