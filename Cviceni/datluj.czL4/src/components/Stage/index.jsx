@@ -23,11 +23,11 @@ const generateWord = (size) => {
   const Stage = () => {
     const [words, setWords] = useState(["jahoda", "klavesnice", "kolac"])
 
-    const [evaulation, setEvaluation] = useState({
+    const [evaluation, setEvaluation] = useState({
       mistakes: 0,
       writtenWords: 0
     })
-    const {mistakes, writtenWords} = evaulation
+    const {mistakes, writtenWords} = evaluation
 
     const handleFinish = () => {
       const copy = [...words]
@@ -37,8 +37,8 @@ const generateWord = (size) => {
       setWords(copy)
     }
 
-    const onEvaulation = (mistake, word) => {
-      setEvaluation({...evaulation, mistakes: mistakes + mistake, writtenWords: writtenWords + word})
+    const onEvaluation = (mistake, word) => {
+      setEvaluation({...evaluation, mistakes: mistakes + mistake, writtenWords: writtenWords + word})
     }
   
     return (
@@ -46,7 +46,7 @@ const generateWord = (size) => {
         <div className="stage__mistakes">Chyb: {mistakes} | Napsaná slova: {writtenWords}</div>
         <div className="stage__words">
           {words.map((word, index) => <Wordbox key={word} word={word} onFinish={handleFinish} 
-          active={index === 0 && true} evaluate={onEvaulation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
+          active={index === 0 && true} evaluate={onEvaluation} firstWord={index === 0 ? "active-word" : "non-active-word"}/>)}
         </div>
       </div>
     );

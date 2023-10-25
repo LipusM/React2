@@ -41,6 +41,13 @@ const generateWord = (size) => {
     //Zobrazení a skrytí boxu s jménem hráče. Při prvním načtení komponenty skryto,
     const [submission, setSubmission] = useState(false)
 
+    const [finalResults, setFinalResults] = useState([
+      {
+        allMistakes: 0,
+        allWrittenWords: 0,
+      }
+    ])
+
     //Hodnoty času, na základě kterých bude vznikat tlačítko
     const chosenTime = [
       {
@@ -71,13 +78,14 @@ const generateWord = (size) => {
 
     /*****Fce vyhodnocující počet chyb a napsaných slov*****/
     const onEvaluation = (mistake, word) => {
-      setEvaluation({...evaluation, mistakes: mistakes + mistake, writtenWords: writtenWords + word})
+      setEvaluation(prev => ({...prev, mistakes: mistakes + mistake, writtenWords: writtenWords + word}))
     }
 
-
-    /*****Fce deaktivující tlačítka času po jeho spuštění*****/
+    /*****Fce deaktivující tlačítka času po jeho spuštění, nastavující čas a upravující hodnoty napsaných slov a chyb*****/
     const startTimer = (yourTime) => {
       setEvaluation({...evaluation, remaningTime: yourTime, activeButton: false})
+
+      setEvaluation(prev => ({...prev, mistakes: 0, writtenWords: 0}))
     }
 
     /*****Fce resetující čas (resp. vrací do původního stavu)*****/
@@ -90,14 +98,10 @@ const generateWord = (size) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
       c(yourName)
-
-      if(yourName === undefined){
-        c("auky")
-      }
-      
+      c(`Mistakes: ${mistakes} and written words: ${writtenWords}`)
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
       let interval
       
       if(remaningTime > 0){
@@ -109,22 +113,35 @@ const generateWord = (size) => {
         setEvaluation({...evaluation, activeButton: true})
         playerName()
       }
-      c(remaningTime)
   
       return () => clearInterval(interval) // Odpojení časovače
 
-    }, [remaningTime])
+    }, [remaningTime, setEvaluation]) */
+
+    useEffect(() => {
+      let interval
+          
+      if(remaningTime > 0){
+        interval = setInterval(() => {
+          setEvaluation(prevEvaluation => ({...prevEvaluation, remaningTime: remaningTime - 1}));
+        }, 1000);
+      } else {
+        setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
+        setEvaluation(prevEvaluation => ({...prevEvaluation, activeButton: true}));
+        playerName()
+      }
     
+      return () => clearInterval(interval); // Odpojení časovače
+    }, [remaningTime, setEvaluation]);
   
     return (
       <div className="stage">
         <TimeButtons theTime={chosenTime} setYourTime={startTimer} makeActive={activeButton}/>
         <TimeShow timeLeft={remaningTime} restartTime={restartTimer}/>
-        {/* <PlayerName appearComponent={false}/> */}
-        {/* <PlayerName /> */}
-        {submission && <PlayerName displaySubmission={playerName} inputValue={playerValue}/>}
-        {/* {visibility && <PlayerName displaySubmission={playerName}/>} */}
 
+        <div className="stage__mistakes">Chyb: {mistakes} | Napsaná slova: {writtenWords}</div>
+
+        {submission && <PlayerName displaySubmission={playerName} inputValue={playerValue}/>}
         <div className="stage__words">
           {words.map((word, index) => <WordboxTime key={word} word={word} onFinish={handleFinish} 
           active={index === 0 && remaningTime !==0 && true} evaluate={onEvaluation} 
