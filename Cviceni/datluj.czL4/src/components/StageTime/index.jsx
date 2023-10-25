@@ -105,8 +105,7 @@ const generateWord = (size) => {
         name: yourName,
         mistakes: mistakes,
         writtenWords: writtenWords,
-        remaningTime: remaningTime,
-        selectedTime: selectedTime,
+        selectedTime: remaningTime,
       }];
       setPlayerStats((prevStats) => [...prevStats, newStat]);
       setSubmission((prev) => !prev);
