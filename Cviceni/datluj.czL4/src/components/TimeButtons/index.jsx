@@ -20,3 +20,4 @@ const TimeButtons = ({theTime, setYourTime, makeActive, newValues}) => {
 }
 
 export default TimeButtons
+

@@ -60,6 +60,10 @@ const generateWord = (size) => {
     //Stav pro jméno hráče
     const [playerValue, setPlayerValue] = useState("")
 
+    //Stav pro statisku her
+    const [playerStats, setPlayerStats] = useState([]);
+
+
     /***** Fce pro odstranění prvíno slova po napsání a generování nového na konec *****/
     const handleFinish = () => {
       const copy = [...words]
@@ -87,29 +91,30 @@ const generateWord = (size) => {
     }
 
     /*****Fce skrývající box pro jméno hráče poté, co se jméno uloží*****/
-    const playerName = (yourName) => {
+    /* const playerName = (yourName) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
       c(yourName)
       c(`Mistakes: ${mistakes}, written words: ${writtenWords} and chosen time: ${remaningTime}`)
+    } */
+
+    const playerName = (yourName) => {
+      const newStat = [{
+        name: yourName,
+        mistakes: mistakes,
+        writtenWords: writtenWords,
+        remaningTime: remaningTime,
+      }];
+      setPlayerStats((prevStats) => [...prevStats, newStat]);
+      setSubmission((prev) => !prev);
+      setPlayerValue(yourName);
+      
+      /* c(playerStats) */
     }
 
-    /* useEffect(() => {
-      let interval
-      
-      if(remaningTime > 0){
-        interval = setInterval(() => {
-          setEvaluation({...evaluation, remaningTime: remaningTime - 1}); // Odečítání 1 od iniciální hodnoty co 1s
-        }, 1000);
-      } else {
-        setWords([generateWord().slice(0, 6), generateWord().slice(0, 6), generateWord().slice(0, 6)])
-        setEvaluation({...evaluation, activeButton: true})
-        playerName()
-      }
-  
-      return () => clearInterval(interval) // Odpojení časovače
-
-    }, [remaningTime, setEvaluation]) */
+    useEffect(() => {
+      c(playerStats)
+    }, [playerStats])
 
     useEffect(() => {
       let interval
