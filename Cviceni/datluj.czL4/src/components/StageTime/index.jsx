@@ -41,13 +41,6 @@ const generateWord = (size) => {
     //Zobrazení a skrytí boxu s jménem hráče. Při prvním načtení komponenty skryto,
     const [submission, setSubmission] = useState(false)
 
-    const [finalResults, setFinalResults] = useState([
-      {
-        allMistakes: 0,
-        allWrittenWords: 0,
-      }
-    ])
-
     //Hodnoty času, na základě kterých bude vznikat tlačítko
     const chosenTime = [
       {
@@ -85,7 +78,7 @@ const generateWord = (size) => {
     const startTimer = (yourTime) => {
       setEvaluation({...evaluation, remaningTime: yourTime, activeButton: false})
 
-      setEvaluation(prev => ({...prev, mistakes: 0, writtenWords: 0}))
+      setEvaluation(prev => ({...prev, mistakes: 0, writtenWords: 0})) /********** **********/
     }
 
     /*****Fce resetující čas (resp. vrací do původního stavu)*****/
@@ -98,7 +91,7 @@ const generateWord = (size) => {
       setSubmission(prev => !prev)
       setPlayerValue(yourName)
       c(yourName)
-      c(`Mistakes: ${mistakes} and written words: ${writtenWords}`)
+      c(`Mistakes: ${mistakes}, written words: ${writtenWords} and chosen time: ${remaningTime}`)
     }
 
     /* useEffect(() => {
