@@ -6,7 +6,7 @@ import './style.scss'
 const Topping = ({topping, checked, selectTopping}) => {
   return (
     <div className="topping">
-      <Check checked={checked} onChange={selectTopping} itItDisabled={topping.vegan}/>
+      <Check checked={checked} onChange={selectTopping}/>
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>
