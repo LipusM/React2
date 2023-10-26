@@ -5,9 +5,7 @@ import Cart from './components/Cart'
 import Header from './components/Header'
 import './app.scss'
 
-import { SettingsContext, SettingsProvider } from './settings-context.jsx'
-
-import { useState } from 'react'
+import { SettingsProvider } from './settings-context.jsx'
 
 const App = () => {
 
