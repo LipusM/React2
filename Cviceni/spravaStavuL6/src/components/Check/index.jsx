@@ -5,16 +5,16 @@ import './style.scss'
 import { usePrefs } from '../../prefs-context'
 import classnames from 'classnames'
 
-const Check = ({checked, onChange, real}) => {
+const Check = ({checked, onChange, isItVegan}) => {
 
   const {vegansOnly} = usePrefs()
-  c(real)
+  c(isItVegan)
 
   return (
     <button 
-      className={classnames("check", {"check--disabled": real} )}
+      className={classnames("check", {"check--disabled": vegansOnly} )}
       onClick={onChange}
-      disabled={real}
+      disabled={vegansOnly}
     >
       {checked ? '✓' : ''}
     </button>
