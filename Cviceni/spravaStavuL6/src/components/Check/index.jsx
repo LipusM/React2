@@ -8,13 +8,13 @@ import classnames from 'classnames'
 const Check = ({checked, onChange, isItVegan}) => {
 
   const {vegansOnly} = usePrefs()
-  c(isItVegan)
+  c(`vegansOnly: ${vegansOnly} isItVegan: ${isItVegan}`)
 
   return (
     <button 
-      className={classnames("check", {"check--disabled": vegansOnly} )}
+      className={classnames("check", {"check--disabled": vegansOnly && (!isItVegan === vegansOnly)} )}
       onClick={onChange}
-      disabled={vegansOnly}
+      disabled={vegansOnly && (!isItVegan === vegansOnly)}
     >
       {checked ? '✓' : ''}
     </button>

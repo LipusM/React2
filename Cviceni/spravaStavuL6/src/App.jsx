@@ -22,7 +22,7 @@ const toppings = [
   {
     name: 'Extra cheese',
     price: 0.5,
-    vegan: true,
+    vegan: false,
     selected: false,
   },
   {
