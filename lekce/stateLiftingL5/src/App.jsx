@@ -5,18 +5,20 @@ import Cart from './components/Cart'
 import Header from './components/Header'
 import './app.scss'
 
-import { SettingsContext } from './settings-context.js'
+import { SettingsContext, SettingsProvider } from './settings-context.jsx'
+
+import { useState } from 'react'
 
 const App = () => {
 
   return (
-    <SettingsContext.Provider value={{currency: "CZK"}}>
+    <SettingsProvider>
     <div className="container">
       <Header />
       <Banner />
       <Cart />
   </div>
-  </SettingsContext.Provider>
+  </SettingsProvider>
   )
 }
 
