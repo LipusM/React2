@@ -4,9 +4,10 @@ import Check from "../Check"
 import './style.scss'
 
 const Topping = ({topping, checked, selectTopping}) => {
+ 
   return (
     <div className="topping">
-      <Check checked={checked} onChange={selectTopping}/>
+      <Check checked={checked} onChange={selectTopping} real={topping.vegan}/>
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>
