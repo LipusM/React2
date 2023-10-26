@@ -1,7 +1,10 @@
 const c = console.log.bind(document)
 
 import ToppingsSelect from './components/ToppingSelect';
+import Header from './components/Header';
 import './app.scss'
+
+import { PrefsProvider } from './prefs-context';
 
 const toppings = [
   {
@@ -81,15 +84,14 @@ const toppings = [
 const App = () => {
 
   return (
+    <PrefsProvider>
     <div className="container">
-      <header>
-        <div className="pizza" />
-        <h1>Build your own pizza</h1>
-      </header>
+      <Header />
       <main>
         <ToppingsSelect toppings={toppings} />
       </main>
     </div>
+    </PrefsProvider>
   )
 }
 
