@@ -15,7 +15,7 @@ const App = () => {
       <Header />
       <Banner />
       <Cart />
-  </div>
+    </div>
   </SettingsProvider>
   )
 }
