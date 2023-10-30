@@ -2,8 +2,6 @@ const c = console.log.bind(document)
 
 import './style.scss';
 
-import { useSettings } from '../../settings-context';
-
 const Header = () => {
 
   return (

@@ -5,8 +5,6 @@ import Cart from './components/Cart'
 import Header from './components/Header'
 import './app.scss'
 
-import { SettingsProvider } from './settings-context.jsx'
-
 const App = () => {
 
   return (
