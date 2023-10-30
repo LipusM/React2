@@ -10,13 +10,11 @@ import { SettingsProvider } from './settings-context.jsx'
 const App = () => {
 
   return (
-    <SettingsProvider>
     <div className="container">
       <Header />
       <Banner />
       <Cart />
     </div>
-  </SettingsProvider>
   )
 }
 
