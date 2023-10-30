@@ -7,8 +7,8 @@ import './style.scss'
 
 const CartProduct = ({ name, price }) => {
 
-  /* const value = useContext(SettingsContext) */ //K tomu stavu chce mít přístup i v jiné komponentě. Pomocí hooku "useContext". Jako argument bere vytvořený context v settings-contex.jsx
-    
+  /* const value = useContext(SettingsContext) */ //K tomu stavu chce mít přístup i v jiné komponentě. Pomocí hooku "useContext". 
+                                                 //Jako argument bere vytvořený context v settings-contex.jsx
   /* const value = useSettings()*/     
   const {currency} = useSettings() //Nemusím se odkazovat na "value". Lze jít přímo po vlastnosti objektu, přes destrukturování.
   
