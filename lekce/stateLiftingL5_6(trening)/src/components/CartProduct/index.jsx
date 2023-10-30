@@ -11,7 +11,7 @@ const CartProduct = ({ name, price }) => {
                                                  //Jako argument bere vytvořený context v settings-contex.jsx
   /* const value = useSettings()*/     
   const {currency} = useSettings() //Nemusím se odkazovat na "value". Lze jít přímo po vlastnosti objektu, přes destrukturování.
-  
+                                  //Říkáme, co z toho contextu vytahujeme.
   return (
     <div className="cart-product">
       <span>{name}</span>

@@ -7,7 +7,7 @@ export const SettingsContext = createContext()
 //Custom hooky vyt. proto, aby měly větší vypovídající hodnotu. Aby nám lépe sdělily co ten kus kódu má dělat. 
 //Když potřebujeme, aby dělal další věci, proto je lepší custom hook.
 export const useSettings = () => useContext(SettingsContext) //Použití vlastního hooku, a jako hodnotu dáváme jaký context chceme použít.
-
+                                                            //Pomocí něho budeme přistupovat k hodnotám v "value"
 
 
 
