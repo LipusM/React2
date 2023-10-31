@@ -17,7 +17,7 @@ const App = () => {
   } */
 
   return (
-    <SetttingsProvider>
+    <SetttingsProvider> {/* Uvnitř je {children} jak je definováno v "settings-context.jsx" */}
       <div className="container">
         <Header />
         <Banner />
