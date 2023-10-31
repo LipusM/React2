@@ -7,7 +7,7 @@ const Topping = ({topping, checked, selectTopping}) => {
  
   return (
     <div className="topping">
-      <Check checked={checked} onChange={selectTopping} isItVegan={topping.vegan}/>
+      <Check checked={checked} onChange={selectTopping} isItVegan={topping.vegan} priloha={topping.name}/>
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>
