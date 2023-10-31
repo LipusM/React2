@@ -12,8 +12,12 @@ export const PrefsProvider = ({children}) => {
 
     const [veganOnly, setVeganOnly] = useState(true)
 
+    const handleVegan = (veganStatus) => {
+        setVeganOnly(veganStatus)
+    }
+
     return (
-        <PrefsContext.Provider value={{veganOnly}}>
+        <PrefsContext.Provider value={{veganOnly, handleVegan}}>
             {children}
         </PrefsContext.Provider>
     )
