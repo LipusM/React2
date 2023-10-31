@@ -1,10 +1,10 @@
 const c = console.log.bind(document)
 
+import { useSettings } from '../../settings-context';
 import './style.scss';
 
-import { useSettings } from '../../settings-context';
-
 const Header = () => {
+
   const {currency, setCurrency} = useSettings()
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ const Header = () => {
       <div className="brand">
         Hračkorama
       </div>
-      <select onChange={handleChange}>
+      <select value={currency} onChange={handleChange}>
         <option value="CZK">CZK</option>
         <option value="EUR">EUR</option>
         <option value="USD">USD</option>

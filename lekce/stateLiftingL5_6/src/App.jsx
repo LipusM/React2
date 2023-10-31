@@ -1,23 +1,30 @@
-const c = console.log.bind(document)
+const c = console.log.bind(document);
 
-import Banner from './components/Banner'
-import Cart from './components/Cart'
-import Header from './components/Header'
-import './app.scss'
-
-import { SettingsProvider } from './settings-context.jsx'
+import Banner from "./components/Banner";
+import Cart from "./components/Cart";
+import Header from "./components/Header";
+import "./app.scss";
+import { SettingsContext, SetttingsProvider } from "./settings-context";
+import { useState } from "react";
 
 const App = () => {
+  /*   const [settings, setSettings] = useState({
+    currency: "CZK"
+  })
+
+  const setCurrency = (newCurrency) => {
+    setSettings({...settings, currency: newCurrency})
+  } */
 
   return (
-    <SettingsProvider>
-    <div className="container">
-      <Header />
-      <Banner />
-      <Cart />
-    </div>
-  </SettingsProvider>
-  )
-}
+    <SetttingsProvider> {/* Uvnitř je {children} jak je definováno v "settings-context.jsx" */}
+      <div className="container">
+        <Header />
+        <Banner />
+        <Cart />
+      </div>
+    </SetttingsProvider>
+  );
+};
 
-export default App
+export default App;
