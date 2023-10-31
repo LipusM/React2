@@ -4,6 +4,8 @@ import ToppingsSelect from './components/ToppingSelect';
 import Header from './components/Header';
 import './app.scss'
 
+import { PrefsProvider } from './prefs-context';
+
 const toppings = [
   {
     name: 'Pepperoni',
@@ -82,12 +84,14 @@ const toppings = [
 const App = () => {
 
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <ToppingsSelect toppings={toppings} />
-      </main>
-    </div>
+    <PrefsProvider>
+      <div className="container">
+        <Header />
+        <main>
+          <ToppingsSelect toppings={toppings} />
+        </main>
+      </div>
+    </PrefsProvider>
   )
 }
 
