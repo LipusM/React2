@@ -5,13 +5,13 @@ import { useSettings } from '../../setting-context';
 
 const MouthSelector = () => {
 
-	const {handleSettings} = useSettings()
+	const {settings, handleSettings} = useSettings()
 
 	const handleClick = (item) => {
-		/* console.log('mouth', item.id); */
-		handleSettings({...item, mouth: item.id})
-		/* handleSettings(prev => ({...prev, mouth: item.id})) */
+		/* handleSettings({...item, mouth: item.image}) */
+		handleSettings(settings => ({...settings, mouth: item.image}))
 	}
+
 
 	return (
 		<div className="items">
