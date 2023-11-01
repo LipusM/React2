@@ -7,7 +7,7 @@ const MouthSelector = () => {
 
 	const {settings, handleSettings} = useSettings()
 
-	const handleClick = (item) => {
+	const changeMouth = (item) => {
 		/* handleSettings({...item, mouth: item.image}) */
 		handleSettings(settings => ({...settings, mouth: item.image}))
 	}
@@ -20,7 +20,7 @@ const MouthSelector = () => {
 					className='item'
 					key={mouth.id}
 					src={mouth.image}
-					onClick={() => { handleClick(mouth) }}
+					onClick={() => { changeMouth(mouth) }}
 					/>
 			)}
 		</div>

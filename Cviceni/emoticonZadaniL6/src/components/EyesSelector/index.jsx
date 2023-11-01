@@ -2,26 +2,25 @@ import React from 'react';
 
 import {eyesData} from '../../data';
 import { useSettings } from '../../setting-context';
+import classnames from 'classnames';
 
 const EyesSelector = () => {
 
 	const {settings, handleSettings} = useSettings()
 
-	const handleClick = (item) => {
-		/* handleSettings({...item, eyes: item.image}) */
+	const changeEyes = (item) => {
 		handleSettings(settings => ({...settings, eyes: item.image}))
-
 	}
 
 
 	return (
 		<div className="items">
-			{eyesData.map(eyes =>
+			{eyesData.map((eyes, index) =>
 				<img
 					className='item'
 					key={eyes.id}
 					src={eyes.image}
-					onClick={() => { handleClick(eyes) }}
+					onClick={() => { changeEyes(eyes) }}
 					/>
 			)}
 		</div>

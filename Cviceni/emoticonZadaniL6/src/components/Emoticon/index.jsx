@@ -15,7 +15,7 @@ const Emoticon = () => {
 	c(settings)
 
 	return (
-		<div className='emoticon' style={{ backgroundColor: '#ff2e12' }}>
+		<div className='emoticon' style={{ backgroundColor: settings.color }}>
 			{/* <img className="emoticon__eyes" src={eyesImg} /> */}
 			<img className="emoticon__eyes" src={settings.eyes} />
 			{/* <img className="emoticon__mouth" src={mouthImg} /> */}
