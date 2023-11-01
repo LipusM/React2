@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { createContext, useContext } from "react";
 
+import eyesImg from './img/eyes1.svg';
+import mouthImg from './img/mouth1.svg';
+
 
 //Tvorba contextu
 export const SettingsContext = createContext()
@@ -12,8 +15,8 @@ export const useSettings = () => useContext(SettingsContext)
 export const SettingsProvider = ({children}) => {
 
     const [settings, setSettings] = useState({ //Výchozí hodnoty pro komponenty Emoticon, EyesSelector, MouthSelector a ColorSelector
-        eyes: 1,
-        mouth: 2,
+        eyes: eyesImg,
+        mouth: mouthImg,
         color: 3,
     })
 
