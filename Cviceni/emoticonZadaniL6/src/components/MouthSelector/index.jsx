@@ -1,11 +1,16 @@
 import React from 'react';
 
 import {mouthData} from '../../data';
+import { useSettings } from '../../setting-context';
 
 const MouthSelector = () => {
 
+	const {handleSettings} = useSettings()
+
 	const handleClick = (item) => {
-		console.log('mouth', item.id);
+		/* console.log('mouth', item.id); */
+		handleSettings({...item, mouth: item.id})
+		/* handleSettings(prev => ({...prev, mouth: item.id})) */
 	}
 
 	return (

@@ -9,7 +9,8 @@ const EyesSelector = () => {
 
 	const handleClick = (item) => {
 		/* console.log('eyes', item.id); */
-		handleSettings({...item, eyes: item.id})
+		/* handleSettings({...item, eyes: item.id}) */
+		handleSettings(prev => ({...prev, eyes: item.id}))
 	}
 
 	return (
