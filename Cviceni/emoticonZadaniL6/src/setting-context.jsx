@@ -17,7 +17,7 @@ export const SettingsProvider = ({children}) => {
         color: 3,
     })
 
-    const handleSettings = (settingStatus) => {
+    const handleSettings = (settingStatus) => { //Funkce pro změnu stavu "settings"
         setSettings(settingStatus)
     }
 

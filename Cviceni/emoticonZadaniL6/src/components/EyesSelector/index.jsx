@@ -1,11 +1,15 @@
 import React from 'react';
 
 import {eyesData} from '../../data';
+import { useSettings } from '../../setting-context';
 
 const EyesSelector = () => {
 
+	const {handleSettings} = useSettings()
+
 	const handleClick = (item) => {
-		console.log('eyes', item.id);
+		/* console.log('eyes', item.id); */
+		handleSettings({...item, eyes: item.id})
 	}
 
 	return (
