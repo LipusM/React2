@@ -85,12 +85,12 @@ const App = () => {
 
   return (
     <PrefsProvider>
-    <div className="container">
-      <Header />
-      <main>
-        <ToppingsSelect toppings={toppings} />
-      </main>
-    </div>
+      <div className="container">
+        <Header />
+        <main>
+          <ToppingsSelect toppings={toppings} />
+        </main>
+      </div>
     </PrefsProvider>
   )
 }

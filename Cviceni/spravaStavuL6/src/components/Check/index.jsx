@@ -1,20 +1,19 @@
 const c = console.log.bind(document)
 
-import './style.scss'
-
 import { usePrefs } from '../../prefs-context'
+import './style.scss'
 import classnames from 'classnames'
 
-const Check = ({checked, onChange, isItVegan}) => {
+const Check = ({checked, onChange, isItVegan, priloha}) => {
 
-  const {vegansOnly} = usePrefs()
-  c(`vegansOnly: ${vegansOnly} isItVegan: ${isItVegan}`)
+  const {veganOnly} = usePrefs()
+  c(`Priloha ${priloha}   veganOnly: ${veganOnly} isItVegan: ${isItVegan}`)
 
   return (
     <button 
-      className={classnames("check", {"check--disabled": vegansOnly && (!isItVegan === vegansOnly)} )}
+      className={classnames("check", {"check--disabled": veganOnly && !isItVegan})}
       onClick={onChange}
-      disabled={vegansOnly && (!isItVegan === vegansOnly)}
+      disabled={veganOnly && !isItVegan}
     >
       {checked ? '✓' : ''}
     </button>

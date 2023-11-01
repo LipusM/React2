@@ -1,22 +1,24 @@
+//Nezbytné importy
 import { createContext, useContext, useState } from "react";
 
-export const PrefsContext = createContext(); //vytváříme kontext
+//Tvorba contextu
+export const PrefsContext = createContext()
 
-//Vlastní hook
+//Tvorba vlastního hooku pro využití contextu
 export const usePrefs = () => useContext(PrefsContext)
 
-//Vlastní provider
+//Tvorba vlastního provideru
 export const PrefsProvider = ({children}) => {
 
-    const [vegansOnly, setVegansOnly] = useState(true)
+    const [veganOnly, setVeganOnly] = useState(true)
 
-    const setVegan = (choice) => {
-        setVegansOnly(choice)
+    const handleVegan = (veganStatus) => {
+        setVeganOnly(veganStatus)
     }
 
-    return(
-        <PrefsContext.Provider value={{vegansOnly, setVegan}}>
+    return (
+        <PrefsContext.Provider value={{veganOnly, handleVegan}}>
             {children}
-        </PrefsContext.Provider> 
+        </PrefsContext.Provider>
     )
 }
