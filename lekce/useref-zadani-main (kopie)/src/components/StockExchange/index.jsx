@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ExchangeRate from '../ExchangeRate';
 
-/* const startGenerator = (callback) => {
+const startGenerator = (callback) => {
   setInterval(() => {
     let rate = 25;
     for (let i = 0; i < 100; i++) {
@@ -10,7 +10,7 @@ import ExchangeRate from '../ExchangeRate';
 
     callback(Math.round(rate * 100) / 100);
   }, 1000);
-}; */
+};
 
 
 const StockExchange = () => {
