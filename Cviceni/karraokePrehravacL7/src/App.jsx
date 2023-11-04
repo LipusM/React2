@@ -1,11 +1,8 @@
 const c = console.log.bind(document)
 
 import './app.scss'
-import { useState, useEffect } from 'react'
-
+import { useState } from 'react'
 import Player from './components/Player'
-import Lyrics from './components/Lyrics'
-
 import songText from "../src/lyrics-lines"
 
 const App = () => {
