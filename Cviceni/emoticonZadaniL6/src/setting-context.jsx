@@ -17,7 +17,7 @@ export const SettingsProvider = ({children}) => {
     const [settings, setSettings] = useState({ //Výchozí hodnoty pro komponenty Emoticon, EyesSelector, MouthSelector a ColorSelector
         eyes: eyesImg,
         mouth: mouthImg,
-        color: 3,
+        color: "#ff2e12",
     })
 
     const handleSettings = (settingStatus) => { //Funkce pro změnu stavu "settings"
