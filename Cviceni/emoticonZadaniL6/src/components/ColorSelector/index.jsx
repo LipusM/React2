@@ -1,5 +1,9 @@
+const c = console.log.bind(document)
+
 import {colorsData} from '../../data';
 import { useSettings } from '../../setting-context';
+
+import classnames from 'classnames';
 
 const ColorSelector = () => {
 
@@ -14,7 +18,7 @@ const ColorSelector = () => {
 		<div className="items">
 			{colorsData.map(color =>
 				<div
-					className='item'
+					className={classnames("item", {active: settings.color === color.value})}
 					key={color.id}
 					style={{ backgroundColor: color.value}}
 					onClick={() => { changeColor(color) }}

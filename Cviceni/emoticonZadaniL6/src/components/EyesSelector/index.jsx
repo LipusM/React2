@@ -15,9 +15,10 @@ const EyesSelector = () => {
 
 	return (
 		<div className="items">
-			{eyesData.map((eyes, index) =>
+			{eyesData.map(eyes =>
 				<img
-					className='item'
+					/* className='item' */
+					className={classnames("item", {active: settings.eyes === eyes.image})}
 					key={eyes.id}
 					src={eyes.image}
 					onClick={() => { changeEyes(eyes) }}
