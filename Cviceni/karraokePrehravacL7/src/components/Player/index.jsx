@@ -5,26 +5,40 @@ import classnames from "classnames"
 
 import Lyrics from "../Lyrics"
 
-const Player = ({src, lines, currentLineIndex}) => {
+const Player = ({src, lines, currentLineIndex, onTimeUpdate}) => {
 
     const [playing, setPlaying] = useState(false)
     const audioRef = useRef()
 
+    //Fce pro start/stop hudby
     const handleMusic = () => {
         setPlaying(!playing)
     }
 
+    //Efekt navazující na fci handleMusic. Aktuálně provádí play/stop hudby
     useEffect(() => {
         if(playing){
             audioRef.current.play()
         } else {
             audioRef.current.pause()
         }
+
+        audioRef.current.addEventListener('timeupdate', handleTimeUpdate)
+
+        return () => {
+            audioRef.current.removeEventListener('timeupdate', handleTimeUpdate)
+        }
     }, [playing])
+
+    //Fce sledující čas písničky
+    const handleTimeUpdate = (e) => {
+        onTimeUpdate(e.target.currentTime)
+    }
 
     return (
         <div className="container">
         <h1>Fools Garden: Lemon Tree</h1>
+        {/* <audio src={src} ref={audioRef} onTimeUpdate={handleTimeUpdate}></audio> */}
         <audio src={src} ref={audioRef}></audio>
         <div className="player-controls">
           <button onClick={handleMusic} 
@@ -34,15 +48,6 @@ const Player = ({src, lines, currentLineIndex}) => {
           })}></button>
         </div>
         <div className="lyrics">
-{/*           <p>I'm sittin' here in the boring room</p>
-          <p>It's just another rainy Sunday afternoon</p>
-          <p>I'm wasting my time I got nothin' to do</p>
-          <p>I'm hangin' around I'm waitin' for you</p>
-          <p>But nothing ever happens and I wonder</p>
-          <p>I'm drivin' around in my car</p>
-          <p>I'm drivin' too fast I'm drivin' too far</p>
-          <p>I'd like to change my point of view</p>
-          <p>I feel so lonely I'm waitin' for you</p> */}
           <Lyrics lines={lines} currentLineIndex={currentLineIndex}/>
         </div>
       </div>

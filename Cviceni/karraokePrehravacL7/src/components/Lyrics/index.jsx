@@ -8,11 +8,12 @@ const Lyrics = ({lines, currentLineIndex}) => {
     const activeLine = useRef()
 
     useEffect(() => {
-        activeLine.current.scrollIntoView({
-            block: "start",
-            inline: 'nearest',
-            behavior: 'smooth',
-          })
+        if(activeLine.current){ //Kontrola, zda-li "activeLine.current" není null nebo undefined
+            activeLine.current.scrollIntoView({
+                block: "start",
+                inline: 'nearest',
+                behavior: 'smooth',
+              })}
     }, [currentLineIndex])
 
     return (
