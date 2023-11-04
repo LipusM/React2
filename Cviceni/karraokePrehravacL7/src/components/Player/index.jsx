@@ -5,7 +5,7 @@ import classnames from "classnames"
 
 import Lyrics from "../Lyrics"
 
-const Player = ({src, lines}) => {
+const Player = ({src, lines, currentLineIndex}) => {
 
     const [playing, setPlaying] = useState(false)
     const audioRef = useRef()
@@ -43,7 +43,7 @@ const Player = ({src, lines}) => {
           <p>I'm drivin' too fast I'm drivin' too far</p>
           <p>I'd like to change my point of view</p>
           <p>I feel so lonely I'm waitin' for you</p> */}
-          <Lyrics lines={lines}/>
+          <Lyrics lines={lines} currentLineIndex={currentLineIndex}/>
         </div>
       </div>
     )

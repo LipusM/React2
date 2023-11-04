@@ -1,12 +1,16 @@
 const c = console.log.bind(document)
 
-const Lyrics = ({lines}) => {
+import classnames from "classnames"
+
+const Lyrics = ({lines, currentLineIndex}) => {
 
     return (
         <>
-            {
-            lines.map(line => <p>{line.text}</p>)
-            }
+            {lines.map((line, index) => 
+            <p key={line.time} className={classnames({"current-line": index === currentLineIndex})}>
+                {line.text}
+            </p>
+            )}
         </>
     )
 }
