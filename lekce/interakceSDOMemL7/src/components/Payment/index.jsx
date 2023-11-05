@@ -5,7 +5,7 @@ const Payment = () => {
   const cardInputRef = useRef() //Založím si proměnnou. React vytvoří referenci resp. odkaz který uloží do té proměnné. Uloží se tam objekt
   
 
-  const handlePay = () => setCardIinputVisible(true);
+  const handlePay = () => setCardIinputVisible(!cardInputVisible);
 
   useEffect(() => {
     if(cardInputVisible){

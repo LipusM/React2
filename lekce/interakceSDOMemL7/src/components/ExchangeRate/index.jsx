@@ -5,7 +5,7 @@ const ExchangeRate = ({ currency, rate }) => {
   const prevRate = useRef() //Proměnná pro ukládání průběžné
 
   useEffect(() => {
-      prevRate.current = rate //
+      prevRate.current = rate
   }, [rate])
 
   return (
