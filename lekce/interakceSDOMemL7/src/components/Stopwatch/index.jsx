@@ -9,6 +9,8 @@ const Stopwatch = () => {
         intervalId.current = setInterval(() => {
             setSeconds(prev => prev + 1)
         }, 1000)
+
+        /* setSeconds(0) */ //Pokud chceme, ať se to zároveň hodí na hodnotu 0.
     }
 
     const handleStop = () => {

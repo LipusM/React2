@@ -10,8 +10,8 @@ export const HomePage = () => {
     <div className="container">
       {/* <Payment /> */}
       {/* <MusicPlayer src={music} /> */}
-      <StockExchange />
-      {/* <Stopwatch /> */}
+      {/* <StockExchange /> */}
+      <Stopwatch />
     </div>
   );
 };
