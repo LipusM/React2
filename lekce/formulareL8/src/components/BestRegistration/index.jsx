@@ -23,12 +23,8 @@ const validateForm = (values) => {
 };
 
 const validationSchemaObject = Yup.object({
-  firstName: Yup.string()
-    .min(2, "Musí obsahovat alespoň 2 znaky.")
-    .required("Povinné pole"),
-  lastName: Yup.string()
-    .max(15, "Maximálně může obsahovat 15 znaků")
-    .required("Povinné pole"),
+  firstName: Yup.string().min(2, "Musí obsahovat alespoň 2 znaky.").required("Povinné pole"),
+  lastName: Yup.string().max(15, "Maximálně může obsahovat 15 znaků").required("Povinné pole"),
   email: Yup.string().email("Špatný formát emailu"),
 });
 
