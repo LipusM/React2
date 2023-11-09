@@ -86,7 +86,7 @@ const BetterRegistration = () => {
         {formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
       </div>
 
-      <button type="submit">Odeslat</button>
+       <button type="submit">Odeslat</button>
     </form>
   );
 };
