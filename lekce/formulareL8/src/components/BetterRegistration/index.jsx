@@ -2,6 +2,7 @@ const c = console.log.bind(document);
 
 import "./style.scss";
 import { useFormik } from "formik";
+import * as Yup from "yup"
 
 const validateForm = (values) => {
   const errors = {}
@@ -21,7 +22,11 @@ const validateForm = (values) => {
   return errors
 }
 
-
+const validationSchemaObject = Yup.object({
+  firstName: Yup.string().min(2, "Musí obsahovat alespoň 2 znaky.").required("Povinné pole"),
+  lastName: Yup.string().max(15, "Maximálně může obsahovat 15 znaků").required("Povinné pole"),
+  email: Yup.string().email("Špatný formát emailu")
+})
 
 
 
@@ -32,8 +37,9 @@ const BetterRegistration = () => {
     initialValues: {
       firstName: "",
       lastName: "",
+      email: "",
     },
-    validate: validateForm,
+    validationSchema: validationSchemaObject,
     onSubmit:(data) => c(data)
   })
 
@@ -65,9 +71,22 @@ const BetterRegistration = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.lastName && formik.errors.lastName && <p>{formik.errors.lastName}</p>}
-
-        <button type="submit">Odeslat</button>
       </div>
+
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        {formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
+      </div>
+
+      <button type="submit">Odeslat</button>
     </form>
   );
 };
