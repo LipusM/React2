@@ -12,7 +12,7 @@ const useForm = (initialValue = {}, onSubmit) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    onsubmit(formData)
+    onSubmit(formData)
   }
 
   return {formData, handleChange, handleSubmit}
