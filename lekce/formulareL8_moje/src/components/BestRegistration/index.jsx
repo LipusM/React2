@@ -48,6 +48,7 @@ const BestRegistration = () => {
         <div>
           <label htmlFor="city">Město</label>
           <Field name="city" as="select"> {/* as="select" určujeme, jakým typem elementu to má být. */}
+            <option value=""></option>
             <option value="Praha">Praha</option>
             <option value="Brno">Brno</option>
             <option value="Ostrava">Ostrava</option>
