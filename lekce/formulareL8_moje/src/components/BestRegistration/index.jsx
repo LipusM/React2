@@ -1,8 +1,8 @@
 const c = console.log.bind(document);
 
 import "./style.scss";
-import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 const validationSchemaObject = Yup.object({
   firstName: Yup.string().min(2, "Musí obsahovat alespoň 2 znaky.").required("Povinné pole."),
@@ -11,62 +11,39 @@ const validationSchemaObject = Yup.object({
 });
 
 const BestRegistration = () => {
-  const formik = useFormik({
-    initialValues: {
+
+  return (
+    <Formik initialValues={{
       firstName: "",
       lastName: "",
       email: "",
-    },
-    validationSchema: validationSchemaObject,
-    onSubmit: (data) => {
-      c(data);
-    },
-  });
+    }}
+    validationSchema={validationSchemaObject}
+    onSubmit={data => c(data)}
+    >
+      <Form>
+          <div>
+            <label htmlFor="firstName">Jméno</label>
+            <Field name="firstName" type="text" />
+            <ErrorMessage name="firstName"/>
+          </div>
 
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <div>
-        <label htmlFor="firstname">Jméno</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.firstName && formik.errors.firstName && <p>{formik.errors.firstName}</p>}
-      </div>
+          <div>
+            <label htmlFor="lastName">Příjmení</label>
+            <Field name="lastName" type="text" />
+            <ErrorMessage name="lastName"/>
+          </div>
 
-      <div>
-        <label htmlFor="lastname">Příjmení</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.lastName && formik.errors.lastName && <p>{formik.errors.lastName}</p>}
-      </div>
+          <div>
+            <label htmlFor="email">E-mail</label>
+            <Field name="email" type="email" />
+            <ErrorMessage name="email"/>
+          </div>
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
-      </div>
-
-      <button type="submit">Odeslat</button>
-    </form>
-  );
+          <button type="submit">Odeslat</button>
+      </Form>
+    </Formik>
+  )
 };
 
 export default BestRegistration;
