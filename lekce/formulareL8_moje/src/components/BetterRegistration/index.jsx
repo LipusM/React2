@@ -2,8 +2,9 @@ const c = console.log.bind(document);
 
 import "./style.scss";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
-const validateForm = (values) => {
+/* const validateForm = (values) => {
   const errors = {}
 
   if(!values.firstName){
@@ -19,9 +20,15 @@ const validateForm = (values) => {
   }
 
   return errors
-}
+} */
 
-const BetterRegistration = () => {
+const validationSchemaObject = Yup.object({
+  firstName: Yup.string().min(2, "Musí obsahovat alespoň 2 znaky.").required("Povinné pole."),
+  lastName: Yup.string().max(15, "Maximálně může obsahovat 15 znaků.").required("Povinné pole."),
+  email: Yup.string().email("Špatný formát e-mailu."),
+});
+
+/* const BetterRegistration = () => {
 
   const formik = useFormik({
     initialValues: {
@@ -30,7 +37,19 @@ const BetterRegistration = () => {
     },
     validate: validateForm,
     onSubmit: data => {c(data)}
-  })
+  }) */
+
+  const BetterRegistration = () => {
+
+    const formik = useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+      },
+      validate: validationSchemaObject,
+      onSubmit: data => {c(data)}
+    })
+  
 
 
   return (
