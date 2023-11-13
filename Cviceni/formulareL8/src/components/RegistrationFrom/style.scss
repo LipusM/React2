@@ -4,6 +4,7 @@
     margin: auto;
 
     .form-part {
+        /* border: solid 1px black; */
         width: 30%;
         margin: auto;
 
@@ -18,13 +19,22 @@
             color: gray;
         }
 
-        div {
+        .part {
             display: flex;
             justify-content: space-between;
             gap: 5px;
 
+            position: relative;
+
             label {
                 color: gray;
+            }
+            
+            .error{
+                position: absolute;
+                right: -33%;
+                color: rgb(116, 3, 3);
+                font-weight: 600;
             }
         }
     }
