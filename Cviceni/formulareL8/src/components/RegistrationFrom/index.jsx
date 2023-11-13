@@ -11,7 +11,7 @@ const RegistrationForm = () => {
       <Formik>
         <Form>
           <div className="form-part">
-              <h2>Registrační údaje</h2>
+            <h2>Registrační údaje</h2>
             <div>
               <label htmlFor="email">E-mail</label>
               <Field name="email" type="email" />
@@ -31,7 +31,7 @@ const RegistrationForm = () => {
           </div>
 
           <div className="form-part">
-              <h2>Fakturační údaje</h2>
+            <h2>Fakturační údaje</h2>
             <div>
               <label htmlFor="yourName">Vaše jméno</label>
               <Field name="yourName" type="text" />
@@ -51,7 +51,7 @@ const RegistrationForm = () => {
           </div>
 
           <div className="form-part">
-              <h2>Ostatní</h2>
+            <h2>Ostatní</h2>
             <div>
               <label htmlFor="pickUpPlace">Preferované odběrné místo</label>
               <Field name="pickUpPlace" type="text" as="select">
@@ -82,9 +82,15 @@ const RegistrationForm = () => {
 
           <div className="form-part" id="gdpr">
             <div>
-              <label htmlFor="gdprCompliance">Souhlas se zpracováním osobních údajů</label>
-              <Field name="gdprCompliance" type="checkbox" value="Souhlas"/>
+              <label htmlFor="gdprCompliance">
+                Souhlas se zpracováním osobních údajů
+              </label>
+              <Field name="gdprCompliance" type="checkbox" value="Souhlas" />
             </div>
+          </div>
+
+          <div className="form-part">
+            <button type="submit">Odeslat</button>
           </div>
         </Form>
       </Formik>
