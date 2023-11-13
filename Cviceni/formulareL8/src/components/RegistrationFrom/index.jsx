@@ -2,12 +2,21 @@ const c = console.log.bind(document);
 
 import "./style.scss";
 
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage, validateYupSchema } from "formik";
 import * as Yup from "yup";
 
 const validationSchemaObject = Yup.object({
-    email: Yup.string().max(30, <span className="error">Může obsahovat max. 30 znaků.</span>).required(<span className="error">Povinné pole</span>)
+    email: Yup.string().max(30, <span className="error2">Může obsahovat max. 30 znaků.</span>).required(<span className="error">Povinné pole</span>),
+    password: Yup.string().max(50, <span className="error2">Může obsahovat max. 50 znaků.</span>).required(<span className="error">Povinné pole</span>),
+    passwordAgain: Yup.string().max(50, <span className="error2">Může obsahovat max. 50 znaků.</span>).required(<span className="error">Povinné pole</span>),
+    phone: Yup.string().max(20, <span className="error2">Může obsahovat max. 20 znaků.</span>).required(<span className="error">Povinné pole</span>),
 })
+
+/* const comparingValues = (values) => {
+    if(values.password !== values.passwordAgain){
+        c("ahoj")
+    }
+} */
 
 const RegistrationForm = () => {
   return (
@@ -21,6 +30,7 @@ const RegistrationForm = () => {
       }}
       validationSchema={validationSchemaObject}
       onSubmit={data => c(data)}
+      /* validate={comparingValues} */
       >
         <Form>
           <div className="form-part">
@@ -28,19 +38,22 @@ const RegistrationForm = () => {
             <div className="part">
               <label htmlFor="email">E-mail</label>
               <Field name="email" type="email" />
-              <ErrorMessage name="email"/>
+              <ErrorMessage name="email" className="pokus"/>
             </div>
             <div className="part">
               <label htmlFor="password">Heslo</label>
               <Field name="password" type="password" />
+              <ErrorMessage name="password"/>
             </div>
             <div className="part">
               <label htmlFor="passwordAgain">Heslo znovu</label>
               <Field name="passwordAgain" type="password" />
+              <ErrorMessage name="passwordAgain"/>
             </div>
             <div className="part">
               <label htmlFor="phone">Telefon</label>
               <Field name="phone" type="text" />
+              <ErrorMessage name="phone"/>
             </div>
           </div>
 
