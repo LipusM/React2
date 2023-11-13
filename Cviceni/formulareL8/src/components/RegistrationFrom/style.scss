@@ -1,0 +1,37 @@
+#registration-form {
+    border: solid 1px red;
+    width: 50%;
+    margin: auto;
+
+    .form-part {
+        width: 30%;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h2 {
+            margin-bottom: 0px;
+            text-align: center;
+            color: gray;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+
+            label {
+                color: gray;
+            }
+        }
+    }
+
+    #gdpr {
+        label {
+            font-weight: 600;
+        }
+    }
+
+}
