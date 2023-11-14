@@ -34,11 +34,12 @@ const RegistrationForm = () => {
           pickUpPlace: "",
           newsLetter: "",
           note: "",
+          gdprCompliance: false,
       }}
       validationSchema={validationSchemaObject}
       onSubmit={data => c(data)}
       >
-        <Form>
+       {({ values, handleChange })  => (<Form>
           <div className="form-part">
             <h2>Registrační údaje</h2>
             <div className="part">
@@ -123,14 +124,15 @@ const RegistrationForm = () => {
               <label htmlFor="gdprCompliance">
                 Souhlas se zpracováním osobních údajů
               </label>
-              <Field name="gdprCompliance" type="checkbox" value="Souhlas" />
+              <Field name="gdprCompliance" type="checkbox" value="Souhlas" checked={values.gdprCompliance} onChange={handleChange}/>
             </div>
           </div>
 
           <div className="form-part">
-            <button type="submit">Odeslat</button>
+            <button disabled={!values.gdprCompliance} type="submit">Odeslat</button>
           </div>
         </Form>
+          )}
       </Formik>
     </section>
   );
