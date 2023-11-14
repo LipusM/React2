@@ -10,15 +10,15 @@ const validationSchemaObject = Yup.object({
     password: Yup.string().max(50, <span className="error2">Může obsahovat max. 50 znaků.</span>).required(<span className="error">Povinné pole</span>),
     passwordAgain: Yup.string().max(50, <span className="error2">Může obsahovat max. 50 znaků.</span>).required(<span className="error">Povinné pole</span>),
     phone: Yup.string().max(20, <span className="error2">Může obsahovat max. 20 znaků.</span>).required(<span className="error">Povinné pole</span>),
+    yourName: Yup.string().max(40, <span className="error2">Může obsahovat max. 40 znaků.</span>),
+    street: Yup.string().max(30, <span className="error2">Může obsahovat max. 30 znaků.</span>),
+    city: Yup.string().max(20, <span className="error2">Může obsahovat max. 20 znaků.</span>),
+    psc: Yup.string().max(6, <span className="error2">Může obsahovat max. 6 znaků.</span>),
+    note: Yup.string().max(100, <span className="error2">Může obsahovat max. 100 znaků.</span>),
 })
 
-/* const comparingValues = (values) => {
-    if(values.password !== values.passwordAgain){
-        c("ahoj")
-    }
-} */
-
 const RegistrationForm = () => {
+
   return (
     <section id="registration-form">
       <Formik
@@ -27,10 +27,16 @@ const RegistrationForm = () => {
           password: "",
           passwordAgain: "",
           phone: "",
+          yourName: "",
+          street: "",
+          city: "",
+          psc: "",
+          pickUpPlace: "",
+          newsLetter: "",
+          note: "",
       }}
       validationSchema={validationSchemaObject}
       onSubmit={data => c(data)}
-      /* validate={comparingValues} */
       >
         <Form>
           <div className="form-part">
@@ -38,7 +44,7 @@ const RegistrationForm = () => {
             <div className="part">
               <label htmlFor="email">E-mail</label>
               <Field name="email" type="email" />
-              <ErrorMessage name="email" className="pokus"/>
+              <ErrorMessage name="email"/>
             </div>
             <div className="part">
               <label htmlFor="password">Heslo</label>
@@ -62,18 +68,22 @@ const RegistrationForm = () => {
             <div className="part">
               <label htmlFor="yourName">Vaše jméno</label>
               <Field name="yourName" type="text" />
+              <ErrorMessage name="yourName"/>
             </div>
             <div className="part">
               <label htmlFor="street">Ulice</label>
               <Field name="street" type="text" />
+              <ErrorMessage name="street"/>
             </div>
             <div className="part">
               <label htmlFor="city">Město</label>
               <Field name="city" type="text" />
+              <ErrorMessage name="city"/>
             </div>
             <div className="part">
               <label htmlFor="psc">PSČ</label>
               <Field name="psc" type="text" />
+              <ErrorMessage name="psc"/>
             </div>
           </div>
 
@@ -93,17 +103,18 @@ const RegistrationForm = () => {
             <div className="part">
               <label htmlFor="newsletter">Odběr newsletteru:</label>
               <label className="newsletter-choice">
-                <Field type="radio" name="picked" value="yes" />
+                <Field type="radio" name="newsLetter" value="yesNewsLetter" />
                 Ano
               </label>
               <label className="newsletter-choice">
-                <Field type="radio" name="notPicked" value="no" />
+                <Field type="radio" name="newsLetter" value="noNewsLetter" />
                 Ne
               </label>
             </div>
             <div className="part">
               <label htmlFor="note">Poznámka</label>
               <Field name="note" type="text" as="textarea" />
+              <ErrorMessage name="note"/>
             </div>
           </div>
 
