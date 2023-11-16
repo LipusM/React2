@@ -9,29 +9,31 @@ const App = () => {
 
   return (
     <>
-      <SideBar title="Titulek sidebaru">
-        {/* <p>Lorem ipsum dolor sit amet.</p>
+      {/* <SideBar title="Titulek sidebaru">
+        <p>Lorem ipsum dolor sit amet.</p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero error adipisci aspernatur nesciunt illum unde?</p>
         <ul>
           <li>asdfas</li>
           <li>asdfasdfasd</li>
-        </ul> */}
+        </ul>
 
-        {/* <Calendar />
-        <News /> */}
+        <Calendar />
+        <News />
 
         <Button>Ano</Button>
         <Button>Ne</Button>
-      </SideBar>
+      </SideBar> */}
 
-      <Box left={<><h3>Super nadpis</h3> <p>Odstavec vlevo</p></>} right={<p>Odstavec vpravo</p>}>
+      {/* <Box left={<><h3>Super nadpis</h3> <p>Odstavec vlevo</p></>} right={<p>Odstavec vpravo</p>}>
         <h2>Nadpis</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, eligendi!</p>
-      </Box>
+      </Box> */}
 
       {/* <Modal title="Chcete všechno smazat?">
         <p>Opravdu chcete smazat všechno? Tato akce nelze vrátit kámo!</p>
       </Modal> */}
+
+      
     </>
   )
 }
