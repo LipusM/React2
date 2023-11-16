@@ -1,0 +1,24 @@
+.detail{
+    border: solid 1px lightgray;
+
+    width: 250px;
+
+    #the-detail{
+        background-color: #5758bb;
+        display: flex;
+        justify-content: space-between;
+        
+        margin-top: 0px;
+        padding: 10px 0px;
+
+        h3{
+            margin: 0px;
+        }
+
+        div{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
