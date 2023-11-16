@@ -1,12 +1,13 @@
-const c = console.log.bind(document)
+const c = console.log.bind(document);
 
-import './app.scss'
-import SideBar from './components/SideBar'
-import Button from './components/Button'
-import Box from './components/Box'
+import "./app.scss";
+import SideBar from "./components/SideBar";
+import Button from "./components/Button";
+import Box from "./components/Box";
+
+import { Page, Grid, Card, Text } from "@geist-ui/core";
 
 const App = () => {
-
   return (
     <>
       {/* <SideBar title="Titulek sidebaru">
@@ -33,9 +34,30 @@ const App = () => {
         <p>Opravdu chcete smazat všechno? Tato akce nelze vrátit kámo!</p>
       </Modal> */}
 
-      
-    </>
-  )
-}
+      <Page>
+        <h2>Toto je moje stránka</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, maxime
+          repellendus.
+        </p>
 
-export default App
+        <Grid.Container gap={2} justify="center" height="100px">
+          <Grid xs={8}>
+            <Card shadow type="success" width="100%">
+            <Text h3>Titulek</Text>
+            <Text p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A pariatur doloribus repellat ab, exercitationem quis!</Text>
+            </Card>
+          </Grid>
+          <Grid xs={8}>
+            <Card shadow type="purple" width="100%" />
+          </Grid>
+          <Grid xs={8}>
+            <Card shadow type="cyan" width="100%" />
+          </Grid>
+        </Grid.Container>
+      </Page>
+    </>
+  );
+};
+
+export default App;
